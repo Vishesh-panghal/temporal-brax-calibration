@@ -127,14 +127,17 @@ ext_ok = img_csv_ok and study_csv_ok and pooling_ok and supp_rows_ok and supp_ti
 # Live URL check
 print(f"\n=== LIVE URL ACCESSIBILITY AUDIT ===")
 import urllib.request
+import time
 url_ok = False
-try:
-    req = urllib.request.Request("https://github.com/Vishesh-panghal/temporal-brax-calibration", headers={'User-Agent': 'Mozilla/5.0'})
-    with urllib.request.urlopen(req, timeout=5) as response:
-        if response.status == 200:
-            url_ok = True
-except Exception as e:
-    url_ok = False
+for attempt in range(3):
+    try:
+        req = urllib.request.Request("https://github.com/Vishesh-panghal/temporal-brax-calibration", headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            if response.status == 200:
+                url_ok = True
+                break
+    except Exception as e:
+        time.sleep(1)
 
 print(f"[{'PASS' if url_ok else 'FAIL'}] Public GitHub repository live & accessible (HTTP 200)")
 

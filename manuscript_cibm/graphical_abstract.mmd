@@ -31,12 +31,12 @@ graph LR
     end
 
     %% ==========================================
-    %% 2. PROSPECTIVE EVALUATION LAYER (BRAX T3)
+    %% 2. HELD-OUT EVALUATION LAYER (BRAX T3)
     %% ==========================================
-    subgraph ProspectiveEval ["■ Prospective Evaluation (BRAX T3, 2017)"]
+    subgraph StratumEval ["■ Held-Out Evaluation (BRAX T3, 2017)"]
         direction TB
 
-        G["<b>Prospective Calibration Benchmark</b><br/>N = 2,436 radiographs (Year 2017)<br/><i>Brier Score (Lower is Better):</i><br/>━━━━━━━━━━━━━━━━━━━━━━<br/>• Raw Weighted: 0.1065<br/>• Temp Scaling: 0.1059<br/>• Analytic Offset: 0.0280 (<b>-74%</b>)<br/>• Unweighted (Ref): 0.0269<br/>━━━━━━━━━━━━━━━━━━━━━━<br/><b>Matches Unweighted Baseline</b>"]
+        G["<b>Held-Out Calibration Benchmark</b><br/>N = 2,436 radiographs (Year 2017)<br/><i>Brier Score (Lower is Better):</i><br/>━━━━━━━━━━━━━━━━━━━━━━<br/>• Raw Weighted: 0.1065<br/>• Temp Scaling: 0.1059<br/>• Analytic Offset: 0.0280 (<b>-74%</b>)<br/>• Unweighted (Ref): 0.0269<br/>━━━━━━━━━━━━━━━━━━━━━━<br/><b>Matches Unweighted Baseline</b>"]
         
         H["<b>Principal Clinical Finding</b><br/>1. Loss weighting creates illusory drift<br/>2. Subtracting log(w) recovers true calibration<br/>3. Selective prediction preserves safety"]
 
@@ -72,4 +72,4 @@ graph LR
 
     style EdgeDevice fill:#F5F9FF,stroke:#6C8EBF,stroke-width:1.5px,color:#1E40AF;
     style MitigationLoop fill:#F2FAF2,stroke:#82B366,stroke-width:1.5px,stroke-dasharray: 5 5,color:#166534;
-    style ProspectiveEval fill:#F8F5FA,stroke:#9673A6,stroke-width:1.5px,color:#6B21A8;
+    style StratumEval fill:#F8F5FA,stroke:#9673A6,stroke-width:1.5px,color:#6B21A8;

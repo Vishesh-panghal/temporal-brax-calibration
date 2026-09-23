@@ -68,7 +68,7 @@ flowchart TD
 | **02** | StudyDate Parsing & Calendar Recovery | 🟢 `COMPLETED` | `src/data/bins.py` | Recovered 2008–2017 real calendar timeline |
 | **03** | Clinical Target Cohort Extraction | 🟢 `COMPLETED` | `configs/config.yaml` | Pleural Effusion (primary) + 3 secondary targets |
 | **04** | Patient-Safe Chronological Splitting | 🟢 `COMPLETED` | `data/processed/` | Train 60%, Val 20%, Test 20% (0 patient overlap) |
-| **05** | Future Temporal Bin Discretization | 🟢 `COMPLETED` | `brax_test_bins_manifest.csv` | Discretized test set: T1_2015, T2_2016, T3_2017 |
+| **05** | Future Temporal Bin Discretization | 🟢 `COMPLETED` | `synthetic_manifest_schema_example.csv` | Discretized test set: T1_2015, T2_2016, T3_2017 (DUA compliant) |
 | **06** | Image Pipeline & Medical Transforms | 🟢 `COMPLETED` | `src/data/dataset.py` | PyTorch Dataset with DICOM/PNG & augmentations |
 | **07** | Anchor Model Training (DenseNet & ResNet) | 🟢 `COMPLETED` | `src/training/train_anchor.py` | Anchor block training engine with weighted BCE |
 | **08** | Frozen Multi-Bin Inference Engine | 🟢 `COMPLETED` | `src/evaluation/predict_frozen.py` | Multi-bin forward evaluation on frozen weights |
@@ -121,7 +121,7 @@ flowchart TD
   - Train $\cap$ Val: `0`
   - Train $\cap$ Test: `0`
   - Val $\cap$ Test: `0`
-- [x] Manifest generated: `brax_temporal_manifest_updated.csv` (Train: 24,826, Val: 8,095, Test: 8,046).
+- [x] Audited split partition counts: Train: 25,123, Val: 7,098, Held-Out Test: 8,302 ($T_1$: 1,879, $T_2$: 3,987, $T_3$: 2,436); total 40,523 from 40,967 after excluding 444 radiographs from 89 boundary-straddling patients. In accordance with PhysioNet Credentialed DUAs, patient manifests are git-ignored and represented by `synthetic_manifest_schema_example.csv`.
 
 ---
 
@@ -250,8 +250,7 @@ temporal-BRAX/
 ├── data/
 │   ├── raw/                                  # Raw metadata & image datasets
 │   └── processed/
-│       ├── brax_temporal_manifest_updated.csv # 60/20/20 patient-safe chronological split
-│       └── brax_test_bins_manifest.csv       # Discretized test bins (T1_2015, T2_2016, T3_2017)
+│       └── synthetic_manifest_schema_example.csv # Synthetic manifest schema (real manifests git-ignored under PhysioNet DUA)
 ├── docs/
 │   ├── research_roadmap.md                   # Visual build map & paper blueprint from Google Doc
 │   └── literature_references.md              # 10 peer-reviewed papers from Google Drive litrature/
@@ -304,5 +303,5 @@ python3 src/training/train_anchor.py \
 ```bash
 python3 src/evaluation/predict_frozen.py \
     --checkpoint checkpoints/best_densenet121.pth \
-    --manifest data/processed/brax_test_bins_manifest.csv
+    --manifest data/processed/synthetic_manifest_schema_example.csv
 ```

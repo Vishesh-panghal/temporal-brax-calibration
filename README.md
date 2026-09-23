@@ -1,4 +1,4 @@
-# Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Temporal Cohort Shift
+# Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Deidentified-Date Cohort Shift
 
 [![CIBM](https://img.shields.io/badge/Journal-Computers%20in%20Biology%20and%20Medicine-blue.svg)](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
@@ -29,7 +29,7 @@ This repository provides the complete, leak-free computational pipeline to repro
 
 1. **Theoretical Logit Shift:** Under population risk minimization, positive loss weighting $w > 1$ mathematically shifts the Bayes-optimal logit by an additive constant $+\log w$:
    $$\Delta z = z_w(x) - z_u(x) \approx \log w$$
-2. **Empirical Verification across 16,604 Evaluations:** Evaluated on all $8,302$ prospective radiographs across DenseNet-121 and ResNet-50 ($16,604$ paired evaluations, $0\%$ exclusion rate), empirical logit differences cluster tightly around theoretical $\log w$:
+2. **Empirical Verification across 16,604 Evaluations:** Evaluated on all $8,302$ held-out radiographs across DenseNet-121 and ResNet-50 ($16,604$ paired evaluations, $0\%$ exclusion rate), empirical logit differences cluster tightly around theoretical $\log w$:
    - **Pleural Effusion ($\log w = 3.07$):** Mean $3.29 \pm 0.81$, median $3.25$ (bias $+0.22$)
    - **Pneumonia ($\log w = 3.99$):** Mean $3.83 \pm 0.74$, median $3.84$ (bias $-0.16$)
    - **Cardiomegaly ($\log w = 2.25$):** Mean $2.64 \pm 1.04$, median $2.60$ (bias $+0.39$)
@@ -56,8 +56,8 @@ This repository provides the complete, leak-free computational pipeline to repro
 │   ├── references.bib                # Fully audited BibTeX bibliography
 │   ├── graphical_abstract.png        # Publication graphical abstract
 │   ├── figures/                      # High-resolution vector/PNG figures
-│   ├── main_cibm.pdf                 # Compiled main manuscript (30 pages)
-│   └── supplementary_material.pdf    # Compiled supplementary material (3 pages)
+│   ├── main_cibm.pdf                 # Compiled main manuscript (31 pages)
+│   └── supplementary_material.pdf    # Compiled supplementary material (5 pages)
 ├── reports/
 │   ├── manuscript_figures/           # Figures 2 through 6 (300 DPI)
 │   ├── manuscript_tables/            # Publication Tables 1 through 5 (.tex, .csv, .md)
@@ -113,7 +113,7 @@ python3 scripts/audit_cibm.py
 *Expected output: `ALL AUDIT CHECKS PASSED: 100% Ready for CIBM Submission.`*
 
 ### Step 2: Probability Ensemble & Multi-Calibrator Recalibration
-Execute the 5-fold cross-fitting and 2,000-replicate patient-clustered bootstrap inference across all 8,302 prospective images (16,604 paired model evaluations):
+Execute the 5-fold cross-fitting and 2,000-replicate patient-clustered bootstrap inference across all 8,302 held-out radiographs (16,604 paired model evaluations):
 ```bash
 python3 scripts/run_stage3_recalibration.py
 ```
@@ -179,7 +179,7 @@ pdflatex -interaction=nonstopmode main_cibm.tex
 
 - **BRAX Database (v1.1.0):** Acquired at Hospital Israelita Albert Einstein (S\~ao Paulo, Brazil; IRB Approval CAAE: 36720520.1.0000.0071 with formal waiver of consent). Available under the [PhysioNet Credentialed Data Use Agreement](https://physionet.org/content/brax/1.1.0/).
 - **MIMIC-CXR-JPG Database (v2.1.0):** Acquired at Beth Israel Deaconess Medical Center (Boston, MA) and MIT (IRB Protocol #0403000206 with waiver of consent). Available under the [PhysioNet Credentialed Data Use Agreement](https://physionet.org/content/mimic-cxr-jpg/2.1.0/).
-- In strict adherence to PhysioNet Data Use Agreements, raw medical image binaries (`.dcm`, `.jpg`) and protected health information are not hosted in this repository. Users must execute credentialed DUAs on PhysioNet directly to access raw images.
+- No credentialed patient-level images, metadata, labels, identifiers, or prediction rows are redistributed; the repository contains aggregate evaluation artifacts and a synthetic manifest schema example. Users must execute credentialed DUAs on PhysioNet directly to access raw images and metadata.
 
 ---
 
@@ -189,7 +189,7 @@ If you use this codebase, methodology, or experimental findings, please cite:
 
 ```bibtex
 @article{panghal2026positive,
-  title={Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Temporal Cohort Shift},
+  title={Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Deidentified-Date Cohort Shift},
   author={Panghal, Vishesh},
   journal={Computers in Biology and Medicine},
   year={2026},
