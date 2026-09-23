@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# macOS
+.DS_Store
+._*
+**/.DS_Store
+
+# LaTeX compilation temporaries (track .tex, .bib, .pdf, .bbl)
+*.aux
+*.log
+*.out
+*.spl
+*.blg
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Data & Large Files (PhysioNet DUA compliance)
+data/raw/
+*.dcm
+*.tar.gz
+*.zip
+
+# Checkpoints & Model Weights
+checkpoints/*.pth
+checkpoints/*.pt
+checkpoints/*.bin
+
+# Logs, temporary files & external PDFs
+*.log
+logs/
+scratch/
+.system_generated/
+external-papers/
+manuscript/page*.png
+

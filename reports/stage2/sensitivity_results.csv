@@ -1,0 +1,397 @@
+analysis_type,architecture,loss_type,seed,stratum_subset,temporal_bin,target,n_total,n_pos,auroc,brier,ece,notes
+view_position_stratification,densenet121,weighted_bce,2026,PA,T1_2015,Pleural Effusion,646,21,0.8720380952380953,0.15998859532686102,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,2026,PA,T2_2016,Pleural Effusion,1379,38,0.8155932336433926,0.18272439907815696,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,2026,PA,T3_2017,Pleural Effusion,838,18,0.7797086720867208,0.18607790384886377,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,2026,AP,T1_2015,Pleural Effusion,192,6,0.7141577060931901,0.21651220776578814,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,2026,AP,T2_2016,Pleural Effusion,479,15,0.5794540229885057,0.23660861813591605,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,2026,AP,T3_2017,Pleural Effusion,303,5,0.6664429530201342,0.23260465349422269,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,2026,L,T1_2015,Pleural Effusion,442,20,0.8767772511848342,0.15207444159011554,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,2026,L,T2_2016,Pleural Effusion,894,35,0.8732080492266756,0.17264890233575186,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,2026,L,T3_2017,Pleural Effusion,537,11,0.790874524714829,0.1933749746550975,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.2671625217251349,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.3001713318306909,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.3014417299067935,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.2671625242390615,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.3001713272728865,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.3014417338400639,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.2671625204007635,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.3001713423104641,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,2026,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.3014417304481534,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.26716251970289107,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.30017133023854276,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.3014417335709132,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.26716253473093815,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.30017133808716034,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.30144173000466645,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.2671625165842739,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.3001713409995581,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,2026,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.3014417320508234,ECE sensitivity: uniform binning with M=15
+view_position_stratification,densenet121,weighted_bce,123,PA,T1_2015,Pleural Effusion,646,21,0.9712000000000001,0.06669754295556404,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,123,PA,T2_2016,Pleural Effusion,1379,38,0.9275187409238981,0.0914071610337767,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,123,PA,T3_2017,Pleural Effusion,838,18,0.8673102981029811,0.08846458393602134,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,123,AP,T1_2015,Pleural Effusion,192,6,0.8548387096774195,0.12299368999014536,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,123,AP,T2_2016,Pleural Effusion,479,15,0.7475574712643678,0.1430009833514389,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,123,AP,T3_2017,Pleural Effusion,303,5,0.8805369127516779,0.145981222704764,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,123,L,T1_2015,Pleural Effusion,442,20,0.9342417061611374,0.10704412169363367,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,123,L,T2_2016,Pleural Effusion,894,35,0.9233327789788791,0.1286565713386041,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,123,L,T3_2017,Pleural Effusion,537,11,0.9165226408572416,0.1123106725478059,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.19525761249167384,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.2213459035934348,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.21808779711968132,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.19525762119822643,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.22134588999570476,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.21808780107206752,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.1952576287033283,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.22134589993588558,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,123,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.21808778140800952,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.1952576095703246,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.22134590815310795,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.2180877984891384,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.19525761469730737,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.22134589563175971,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.21808777873408916,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.19525762132312977,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.2213458934107878,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,123,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.21808778583599722,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,weighted_bce,42,PA,T1_2015,Pleural Effusion,646,21,0.8578666666666667,0.1462494874468877,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,42,PA,T2_2016,Pleural Effusion,1379,38,0.8332548373170061,0.15211205178164264,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,42,PA,T3_2017,Pleural Effusion,838,18,0.7852981029810299,0.14873926792231829,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,42,AP,T1_2015,Pleural Effusion,192,6,0.4982078853046595,0.20832484247704564,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,42,AP,T2_2016,Pleural Effusion,479,15,0.6855603448275862,0.21405525353178992,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,42,AP,T3_2017,Pleural Effusion,303,5,0.5869127516778524,0.21730318940893487,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,42,L,T1_2015,Pleural Effusion,442,20,0.85989336492891,0.11476195734228742,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,42,L,T2_2016,Pleural Effusion,894,35,0.8600199567603526,0.11929215772668346,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,42,L,T3_2017,Pleural Effusion,537,11,0.7961458693397857,0.11676435350034867,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.300796008747648,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.3155774054130815,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.3239149443058936,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.3007959922366221,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.3155774249374523,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.3239149437125387,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.3007959994056746,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.3155774130823022,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,42,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.32391494133300186,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.3007960127286926,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.31557740203817597,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.3239149754295012,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.3007960116263715,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.31557739588635475,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.3239149487591142,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.3007959796947453,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.31557742556440727,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,42,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.32391495872839476,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,weighted_bce,123,PA,T1_2015,Pleural Effusion,646,21,0.9705142857142858,0.062498288993446345,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,123,PA,T2_2016,Pleural Effusion,1379,38,0.9302857254994309,0.08864979119578893,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,123,PA,T3_2017,Pleural Effusion,838,18,0.8248983739837399,0.08980328621403495,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,123,AP,T1_2015,Pleural Effusion,192,6,0.7849462365591398,0.1196780436020533,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,123,AP,T2_2016,Pleural Effusion,479,15,0.7959770114942529,0.11728714408308935,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,123,AP,T3_2017,Pleural Effusion,303,5,0.9335570469798657,0.12204546739864171,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,123,L,T1_2015,Pleural Effusion,442,20,0.9292061611374407,0.07066358740105472,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,123,L,T2_2016,Pleural Effusion,894,35,0.9000332612672544,0.09115397277149483,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,123,L,T3_2017,Pleural Effusion,537,11,0.8822156930521949,0.07040181827349584,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.16444205166003756,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.18931222300213144,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.18647474833620387,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.16444205251750857,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.18931222984210824,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.1864747469107374,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.16444205440493612,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.1893122348119651,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,123,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.18647474998532532,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.1644420516877938,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.18931223061435615,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.18647475735619296,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.16444205802217512,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.18931222707593773,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.1864747540483921,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.16444206668808464,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.18931222528570543,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,123,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.18647475663896754,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,weighted_bce,2026,PA,T1_2015,Pleural Effusion,646,21,0.8905523809523809,0.12939703949347298,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,2026,PA,T2_2016,Pleural Effusion,1379,38,0.8072432199065898,0.14473586808944855,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,2026,PA,T3_2017,Pleural Effusion,838,18,0.8358062330623306,0.14709621550105137,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,weighted_bce,2026,AP,T1_2015,Pleural Effusion,192,6,0.5376344086021505,0.2784274841925292,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,2026,AP,T2_2016,Pleural Effusion,479,15,0.6296695402298851,0.2999150245148814,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,2026,AP,T3_2017,Pleural Effusion,303,5,0.6161073825503356,0.29184482459161976,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,weighted_bce,2026,L,T1_2015,Pleural Effusion,442,20,0.89739336492891,0.11537345805965087,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,2026,L,T2_2016,Pleural Effusion,894,35,0.8456843505737568,0.1325750244911042,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,weighted_bce,2026,L,T3_2017,Pleural Effusion,537,11,0.7748012443829935,0.14259841500035342,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.2790402302150716,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.3087112022269959,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.31496592733109824,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.2790402412303526,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.3087112104558978,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.314965916320388,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.2790402355244529,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.30871120252412215,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,2026,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.31496592393918776,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.2790402423326737,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.30871121154442627,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.3149659460921251,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.2790402536215524,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.3087111986502687,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.31496592921209454,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.2790402377568514,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.3087112198798451,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,weighted_bce,2026,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.31496592310420884,ECE sensitivity: uniform binning with M=15
+view_position_stratification,densenet121,weighted_bce,42,PA,T1_2015,Pleural Effusion,646,21,0.970895238095238,0.043603378775324185,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,42,PA,T2_2016,Pleural Effusion,1379,38,0.9409906197260489,0.056453521184761365,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,42,PA,T3_2017,Pleural Effusion,838,18,0.8482046070460705,0.06447791985932376,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,weighted_bce,42,AP,T1_2015,Pleural Effusion,192,6,0.8064516129032258,0.08880329068313264,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,42,AP,T2_2016,Pleural Effusion,479,15,0.6744252873563219,0.0941716596220608,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,42,AP,T3_2017,Pleural Effusion,303,5,0.8771812080536913,0.0977853768882168,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,weighted_bce,42,L,T1_2015,Pleural Effusion,442,20,0.920734597156398,0.07086154143337549,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,42,L,T2_2016,Pleural Effusion,894,35,0.9004157658406785,0.06936931914548101,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,weighted_bce,42,L,T3_2017,Pleural Effusion,537,11,0.923263048738334,0.06405527950088007,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.12670912193516076,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.14559386153608478,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.1486729614173593,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.12670912195300407,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.1455938547154959,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.1486729624687292,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.12670911703344995,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.14559385365055996,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,42,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.14867295871208897,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.12670911771620505,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.14559385309788647,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.14867296796567336,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.12670911283704625,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.1455938603419737,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.14867296420368067,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.12670911638192067,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.14559385569353644,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,weighted_bce,42,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.14867296066801927,ECE sensitivity: uniform binning with M=15
+view_position_stratification,densenet121,unweighted_bce,123,PA,T1_2015,Pleural Effusion,646,21,0.9517714285714286,0.025590848759945158,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,123,PA,T2_2016,Pleural Effusion,1379,38,0.8826680795949606,0.023959978476785274,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,123,PA,T3_2017,Pleural Effusion,838,18,0.8503048780487805,0.01929269463598018,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,123,AP,T1_2015,Pleural Effusion,192,6,0.8512544802867383,0.028406385553245234,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,123,AP,T2_2016,Pleural Effusion,479,15,0.7081896551724137,0.0299310040812583,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,123,AP,T3_2017,Pleural Effusion,303,5,0.825503355704698,0.015482649902550539,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,123,L,T1_2015,Pleural Effusion,442,20,0.9441943127962085,0.035354726817949,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,123,L,T2_2016,Pleural Effusion,894,35,0.8840844836188259,0.03285638626327885,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,123,L,T3_2017,Pleural Effusion,537,11,0.8818700311095747,0.019214290870716317,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.028971848732823068,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.013088393113981153,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.010206304917995908,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.031701601025890785,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.013681665845196632,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.011215640885345577,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.030571104714051167,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.014506397350729335,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,123,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.010839852006656343,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.01721882519568453,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.005948271258080815,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.003506400902283016,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.02233271416576065,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.0059482699074645306,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.0090859165883123,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.027592368901247766,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.00903236281088429,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,123,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.008961401494412586,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,unweighted_bce,42,PA,T1_2015,Pleural Effusion,646,21,0.9773714285714286,0.021540347058774764,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,42,PA,T2_2016,Pleural Effusion,1379,38,0.9339456022606852,0.021798272780971316,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,42,PA,T3_2017,Pleural Effusion,838,18,0.7892615176151762,0.02015526547116618,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,42,AP,T1_2015,Pleural Effusion,192,6,0.8611111111111112,0.02820070850204918,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,42,AP,T2_2016,Pleural Effusion,479,15,0.6612787356321839,0.03001351732749152,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,42,AP,T3_2017,Pleural Effusion,303,5,0.8651006711409396,0.014569646591077103,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,42,L,T1_2015,Pleural Effusion,442,20,0.9359004739336493,0.02991237225961614,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,42,L,T2_2016,Pleural Effusion,894,35,0.8983535672709131,0.03040111006749088,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,42,L,T3_2017,Pleural Effusion,537,11,0.8796232284825442,0.018996953796348113,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.013966956083549305,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.006773817439086815,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.012035456478782305,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.014101161396146037,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.010176565747255414,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.012067227044812983,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.014359502687820661,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.012761174145621092,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,42,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.012227045504846018,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.016062585346523658,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.012831401879704621,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.004105338175308528,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.016062584959918223,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.012831398108397132,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.008625613867300631,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.016797448384529453,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.013713618434436765,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,42,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.009554783827418766,ECE sensitivity: uniform binning with M=15
+view_position_stratification,densenet121,unweighted_bce,2026,PA,T1_2015,Pleural Effusion,646,21,0.9595428571428571,0.020006768870763456,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,2026,PA,T2_2016,Pleural Effusion,1379,38,0.9431983201852506,0.02001873968201325,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,2026,PA,T3_2017,Pleural Effusion,838,18,0.8306233062330624,0.01897061976681547,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,2026,AP,T1_2015,Pleural Effusion,192,6,0.8212365591397849,0.027568202768198897,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,2026,AP,T2_2016,Pleural Effusion,479,15,0.8075431034482761,0.028312857824975578,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,2026,AP,T3_2017,Pleural Effusion,303,5,0.8640939597315436,0.014588903753347116,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,2026,L,T1_2015,Pleural Effusion,442,20,0.902132701421801,0.03236026950194777,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,2026,L,T2_2016,Pleural Effusion,894,35,0.907300848162315,0.031453990557760485,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,2026,L,T3_2017,Pleural Effusion,537,11,0.8874006221914967,0.019378717698217113,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.016773205704515192,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.0043135751249020575,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.004499480248622333,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.016773203854880805,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.006345572167374931,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.008637815197659824,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.01845590616023726,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.010834651791747796,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.008579045145891681,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.01369223222255453,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.011498659297894918,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.006214102291255847,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.015066016015377116,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.013578368709190224,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.006586336217245641,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.016846527385130372,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.014164447238991624,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,2026,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.008620531106679678,ECE sensitivity: uniform binning with M=15
+view_position_stratification,densenet121,unweighted_bce,42,PA,T1_2015,Pleural Effusion,646,21,0.9644571428571429,0.018533740233481436,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,42,PA,T2_2016,Pleural Effusion,1379,38,0.9122807017543859,0.021580783167737264,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,42,PA,T3_2017,Pleural Effusion,838,18,0.8587737127371274,0.020058937873824623,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,densenet121,unweighted_bce,42,AP,T1_2015,Pleural Effusion,192,6,0.8714157706093191,0.026617942381058638,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,42,AP,T2_2016,Pleural Effusion,479,15,0.7038793103448275,0.027046317642001085,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,42,AP,T3_2017,Pleural Effusion,303,5,0.9389261744966443,0.011734881438169564,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,densenet121,unweighted_bce,42,L,T1_2015,Pleural Effusion,442,20,0.9351303317535545,0.03080597297166821,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,42,L,T2_2016,Pleural Effusion,894,35,0.9100116414435391,0.0301518207490976,,Stratified evaluation for ViewPosition=L
+view_position_stratification,densenet121,unweighted_bce,42,L,T3_2017,Pleural Effusion,537,11,0.9262011752506049,0.016740147003164063,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.021032029741845537,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.01118634527529059,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.00506540025074581,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.021032031957175214,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.011400066052101943,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.0074434487674876005,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.02125692217334422,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.012396457023965465,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,42,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.010590869525052938,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.025258709593790524,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.018536583438482024,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.011217093718741303,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.025949669899265296,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.018712294679709716,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.01382245528335838,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.026404933637169652,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.020532631416435312,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,densenet121,unweighted_bce,42,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.015944629623164685,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,unweighted_bce,2026,PA,T1_2015,Pleural Effusion,646,21,0.9692571428571428,0.02260285091204657,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,2026,PA,T2_2016,Pleural Effusion,1379,38,0.9418050158954434,0.02094414255623718,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,2026,PA,T3_2017,Pleural Effusion,838,18,0.8544376693766937,0.018995663073679343,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,2026,AP,T1_2015,Pleural Effusion,192,6,0.7737455197132617,0.029958714691066063,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,2026,AP,T2_2016,Pleural Effusion,479,15,0.8489224137931034,0.028203117078572103,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,2026,AP,T3_2017,Pleural Effusion,303,5,0.8718120805369127,0.01488165367691567,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,2026,L,T1_2015,Pleural Effusion,442,20,0.9405805687203791,0.030229499568839868,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,2026,L,T2_2016,Pleural Effusion,894,35,0.889273241310494,0.03138670345492328,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,2026,L,T3_2017,Pleural Effusion,537,11,0.8931904597303837,0.01833653401625529,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.012068909244981612,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.0036485455262750114,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.01063192056746976,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.012535687257570946,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.010410570242743639,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.011029210155340422,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.013441700207513368,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.008242780664643255,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.011273631279414411,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.01003224876505571,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.006936553121921201,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.008182706684485836,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.011205442497598927,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.008673893764768294,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.008182706177152069,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.01078580568101953,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.00894473914331718,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,2026,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.008182707758030086,ECE sensitivity: uniform binning with M=15
+view_position_stratification,resnet50,unweighted_bce,123,PA,T1_2015,Pleural Effusion,646,21,0.9236190476190476,0.02650960386390153,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,123,PA,T2_2016,Pleural Effusion,1379,38,0.854291769692688,0.025177491003034017,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,123,PA,T3_2017,Pleural Effusion,838,18,0.7907859078590787,0.020693357452883396,,Stratified evaluation for ViewPosition=PA
+view_position_stratification,resnet50,unweighted_bce,123,AP,T1_2015,Pleural Effusion,192,6,0.8369175627240144,0.029420953078863527,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,123,AP,T2_2016,Pleural Effusion,479,15,0.6254310344827587,0.03061190649447216,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,123,AP,T3_2017,Pleural Effusion,303,5,0.7939597315436241,0.016604407125176572,,Stratified evaluation for ViewPosition=AP
+view_position_stratification,resnet50,unweighted_bce,123,L,T1_2015,Pleural Effusion,442,20,0.9387440758293839,0.03485495671918542,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,123,L,T2_2016,Pleural Effusion,894,35,0.8314485281889239,0.03483370966463273,,Stratified evaluation for ViewPosition=L
+view_position_stratification,resnet50,unweighted_bce,123,L,T3_2017,Pleural Effusion,537,11,0.8366747321119945,0.019417209904869906,,Stratified evaluation for ViewPosition=L
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins5,T1_2015,Pleural Effusion,1879,99,,,0.02154708357960057,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins5,T2_2016,Pleural Effusion,3987,177,,,0.00855118824845983,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins5,T3_2017,Pleural Effusion,2436,85,,,0.016590770875747594,ECE sensitivity: quantile binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins10,T1_2015,Pleural Effusion,1879,99,,,0.02154708223094239,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins10,T2_2016,Pleural Effusion,3987,177,,,0.009786828243644808,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins10,T3_2017,Pleural Effusion,2436,85,,,0.016711713499213725,ECE sensitivity: quantile binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins15,T1_2015,Pleural Effusion,1879,99,,,0.02310501769117658,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins15,T2_2016,Pleural Effusion,3987,177,,,0.011209730609946823,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,123,quantile_bins15,T3_2017,Pleural Effusion,2436,85,,,0.017358401947202118,ECE sensitivity: quantile binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins5,T1_2015,Pleural Effusion,1879,99,,,0.01638853899289979,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins5,T2_2016,Pleural Effusion,3987,177,,,0.008796492588230027,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins5,T3_2017,Pleural Effusion,2436,85,,,0.017654561555419845,ECE sensitivity: uniform binning with M=5
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins10,T1_2015,Pleural Effusion,1879,99,,,0.022763259066025932,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins10,T2_2016,Pleural Effusion,3987,177,,,0.009550742074335192,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins10,T3_2017,Pleural Effusion,2436,85,,,0.01786782805332287,ECE sensitivity: uniform binning with M=10
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins15,T1_2015,Pleural Effusion,1879,99,,,0.021547082583100282,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins15,T2_2016,Pleural Effusion,3987,177,,,0.010047759337980019,ECE sensitivity: uniform binning with M=15
+ece_binning_sensitivity,resnet50,unweighted_bce,123,uniform_bins15,T3_2017,Pleural Effusion,2436,85,,,0.01976433741609292,ECE sensitivity: uniform binning with M=15
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Pleural Effusion,1879,99,0.9449211213256157,0.03555694943498247,0.026132167369511898,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Pleural Effusion,3987,177,0.9030739801592598,0.03412156914800531,0.010097839005802089,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Pleural Effusion,2436,85,0.880551454950334,0.026767430662067937,0.00402119791988522,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Cardiomegaly,1879,147,0.9176957156996748,0.05071371825998561,0.008386321442410898,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Cardiomegaly,3987,422,0.9080322780056235,0.06495181217944654,0.021434320268386584,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Cardiomegaly,2436,258,0.9144172521550956,0.06477182101489988,0.023122610113497866,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Pneumonia,1879,50,0.8525095680699837,0.023278967380692756,0.01478959203307666,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Pneumonia,3987,79,0.896466838552531,0.018052713746297546,0.009324176660427043,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Pneumonia,2436,50,0.8769237217099749,0.01849002470035297,0.008313288404078686,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Edema,1879,4,0.5318666666666667,0.002123721393929848,0.00308375398416772,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Edema,3987,13,0.9055204986256824,0.0032350933274662833,0.0034680058028357876,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Edema,2436,0,,1.0052765051086562e-05,0.002885792103291325,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Pleural Effusion,1879,99,0.9327942344796278,0.09204396309073758,0.1963764249628183,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Pleural Effusion,3987,177,0.8996737695923603,0.11107116825791186,0.22237036198542057,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Pleural Effusion,2436,85,0.8691420421848024,0.10787236980073894,0.22273417007275942,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Cardiomegaly,1879,147,0.9011052457934674,0.11248220303037434,0.2030944172025298,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Cardiomegaly,3987,422,0.8933988287922998,0.12141887152022815,0.19842022868092418,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Cardiomegaly,2436,258,0.8882749268584363,0.12185746149872449,0.1968649541546265,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Pneumonia,1879,50,0.8360962274466922,0.11213256002900521,0.23884294599596018,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Pneumonia,3987,79,0.8804270370418357,0.11119890906200386,0.24434774107193927,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Pneumonia,2436,50,0.8738306789606035,0.11050119906001098,0.2424314685459501,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Edema,1879,4,0.6034666666666667,0.03829753767879919,0.1183968721162835,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Edema,3987,13,0.8898803762920522,0.04046535336925561,0.1277600591004844,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,densenet121,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Edema,2436,0,,0.03783333138473647,0.12735066400177178,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Pleural Effusion,1879,99,0.94117012824878,0.03606656818543994,0.019571151724655206,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Pleural Effusion,3987,177,0.8948159022495069,0.03507858102031829,0.006139789936409533,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Pleural Effusion,2436,85,0.8695774013561188,0.027243782130305153,0.010914569193029345,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Cardiomegaly,1879,147,0.9039331668002074,0.05382284035872218,0.023813759980444705,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Cardiomegaly,3987,422,0.8934918872928618,0.06716119471542899,0.020586598522324372,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Cardiomegaly,2436,258,0.8969380200881258,0.06724904999409527,0.020118219640307827,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Pneumonia,1879,50,0.8551886276653909,0.023575017371083005,0.008722667873278458,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Pneumonia,3987,79,0.8781273078268531,0.018128628089636,0.004183117956046182,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Pneumonia,2436,50,0.8963788767812239,0.01857526537859154,0.007127954081799653,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T1_2015,Edema,1879,4,0.5556000000000001,0.0021274854585367612,0.0017469168349696813,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T2_2016,Edema,3987,13,0.9082691339862956,0.0032263330626034654,0.0020605398924860084,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,unweighted_bce,ensemble_3seeds,ensemble,T3_2017,Edema,2436,0,,1.4829719957849648e-05,0.0017090410074818007,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Pleural Effusion,1879,99,0.9280785381908977,0.11010975539214016,0.24809276311400089,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Pleural Effusion,3987,177,0.8939988433649184,0.12537336849399747,0.27120028856645584,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Pleural Effusion,2436,85,0.869247128881327,0.12272523337815276,0.27511854888488996,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Cardiomegaly,1879,147,0.8749391211449938,0.12591900851275026,0.2449689244275527,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Cardiomegaly,3987,422,0.8630504576484117,0.13632267269147036,0.23568021383483162,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Cardiomegaly,2436,258,0.8571995501170977,0.13620335403258277,0.2337881258347841,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Pneumonia,1879,50,0.854029524330235,0.14346069777135617,0.31887758012906614,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Pneumonia,3987,79,0.8724945907777619,0.1445937090180398,0.32553713972971554,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Pneumonia,2436,50,0.8776529756915339,0.145211735027808,0.3252852625826799,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T1_2015,Edema,1879,4,0.6182666666666666,0.04905240321728491,0.1531660469316299,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T2_2016,Edema,3987,13,0.8476830165305255,0.053133918911931644,0.1638818823620079,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+model_estimand_ensemble,resnet50,weighted_bce,ensemble_3seeds,ensemble,T3_2017,Edema,2436,0,,0.0530068981176031,0.16704069956110973,Ensemble estimand: probability averaged across 3 seeds; canonical image_id join
+alternative_temporal_partition,densenet121,unweighted_bce,42,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9071591397447635,0.03850591275259793,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,unweighted_bce,42,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8911012984025692,0.02739969062885851,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,densenet121,unweighted_bce,123,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9052626170145183,0.04119815265782356,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,unweighted_bce,123,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8710928991267889,0.028814904390746517,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,densenet121,unweighted_bce,2026,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9149834638165886,0.037922943998872895,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,unweighted_bce,2026,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8815109634945169,0.027997139562470887,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,densenet121,weighted_bce,42,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9102322306096899,0.08273685981341092,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,weighted_bce,42,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.885189567472149,0.08340066009023273,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,densenet121,weighted_bce,123,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9203367028531924,0.11481278466041475,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,weighted_bce,123,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8770203133522345,0.12036989694811243,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,densenet121,weighted_bce,2026,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.8338563173826117,0.16377583784772218,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,densenet121,weighted_bce,2026,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.774218057048857,0.17337665059976512,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,unweighted_bce,42,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9125614267830117,0.03862103027209518,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,unweighted_bce,42,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8643220721466423,0.029092348623054164,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,unweighted_bce,123,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.8740966993030512,0.04170931329800748,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,unweighted_bce,123,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8461939256855778,0.029772292785010087,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,unweighted_bce,2026,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.917844597245838,0.03787004926275593,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,unweighted_bce,2026,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8856731357354333,0.028234641040877275,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,weighted_bce,42,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.8258188680655469,0.14676737578929006,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,weighted_bce,42,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.7818418810195535,0.1487454904048754,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,weighted_bce,123,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.9186591444160017,0.09987069979581129,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,weighted_bce,123,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8773705736078026,0.10811909297751866,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half
+alternative_temporal_partition,resnet50,weighted_bce,2026,Alt_Partition_Early_Half,Alt_Partition_Early_Half,Pleural Effusion,4146,218,0.8468645481044116,0.1549528402686707,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Early_Half
+alternative_temporal_partition,resnet50,weighted_bce,2026,Alt_Partition_Late_Half,Alt_Partition_Late_Half,Pleural Effusion,4156,143,0.8202868648918986,0.1655647380522499,,Alternative 2-bin partition at computed median=1970-01-01: Alt_Partition_Late_Half

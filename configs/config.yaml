@@ -1,0 +1,46 @@
+# Experiment Configuration for BRAX Temporal Calibration Decay Project
+
+project:
+  name: "temporal-BRAX"
+  seed: 42
+
+data:
+  manifest_path: "data/processed/stage2_manifest.csv"
+  bins_manifest_path: "data/processed/stage2_manifest.csv"
+  image_root: "/home/poornima/vishesh_gpu/datasets/brax"
+  primary_target: "Pleural Effusion"
+  secondary_targets:
+    - "Cardiomegaly"
+    - "Pneumonia"
+    - "Edema"
+  uncertainty_policy: "u_zero"  # u_zero: fillna(0), u_ignore: mask loss
+  image_size: 512               # Full 512x512 diagnostic resolution (ideal for 48GB VRAM)
+  batch_size: 64                # High-throughput batch size (can scale to 128)
+  num_workers: 8                # Parallel DataLoader workers
+  pin_memory: true              # Fast page-locked host-to-GPU DMA transfers
+
+hardware:
+  device: "cuda"
+  gpu_name: "NVIDIA Quadro RTX 8000 (48GB)"
+  mixed_precision: true         # Automatic Mixed Precision (AMP fp16 via Tensor Cores)
+  cudnn_benchmark: true         # cuDNN auto-tuner for fastest convolution algorithms
+
+models:
+  architectures:
+    - "densenet121"
+    - "resnet50"
+  pretrained: true
+  dropout: 0.2
+
+training:
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  max_epochs: 20
+  patience: 5
+  pos_weight_multiplier: 1.0
+
+evaluation:
+  calibration_bins: 10
+  calibration_strategy: "equal_mass" # equal_mass or equal_width
+  bootstrap_replications: 2000       # Upgraded to 2000 per STAGE_2.md Section 2E
+  confidence_level: 0.95

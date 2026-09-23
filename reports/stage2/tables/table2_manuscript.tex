@@ -1,0 +1,43 @@
+\begin{table*}[t]
+\centering
+\caption{Factorial Experimental Matrix Evaluation Across Chronologically Ordered Deployment Strata ($T_1, T_2, T_3$). Reported as Mean $\pm$ SD across three independent seeds (42, 123, 2026).}
+\label{tab:matrix_evaluation}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lllcccc}
+\hline
+\textbf{Architecture} & \textbf{Objective} & \textbf{Target Pathology} & \textbf{$T_1$ (Baseline)} & \textbf{$T_2$ (Intermediate)} & \textbf{$T_3$ (Late Deployment)} & \textbf{$\Delta(T_3 - T_1)$} \\ \hline
+\multicolumn{7}{l}{\textit{\textbf{Discrimination: Area Under ROC Curve (AUROC $\uparrow$)}}} \\
+DenseNet-121 & Unweighted BCE & Pleural Effusion & 0.934 ± 0.005 & 0.890 ± 0.012 & 0.873 ± 0.012 & \textbf{-0.060} \\
+DenseNet-121 & Unweighted BCE & Cardiomegaly & 0.907 ± 0.012 & 0.896 ± 0.014 & 0.902 ± 0.017 & \textbf{-0.006} \\
+DenseNet-121 & Unweighted BCE & Pneumonia & 0.847 ± 0.013 & 0.882 ± 0.017 & 0.865 ± 0.017 & \textbf{+0.017} \\
+DenseNet-121 & Unweighted BCE & Edema$^*$ & 0.540 ± 0.047 & 0.864 ± 0.069 & -- & \textbf{--} \\
+DenseNet-121 & Pos-Weighted BCE & Pleural Effusion & 0.906 ± 0.054 & 0.868 ± 0.046 & 0.839 ± 0.066 & \textbf{-0.067} \\
+DenseNet-121 & Pos-Weighted BCE & Cardiomegaly & 0.874 ± 0.054 & 0.860 ± 0.060 & 0.858 ± 0.070 & \textbf{-0.016} \\
+DenseNet-121 & Pos-Weighted BCE & Pneumonia & 0.818 ± 0.021 & 0.849 ± 0.031 & 0.842 ± 0.050 & \textbf{+0.024} \\
+DenseNet-121 & Pos-Weighted BCE & Edema$^*$ & 0.612 ± 0.027 & 0.875 ± 0.013 & -- & \textbf{--} \\
+ResNet-50 & Unweighted BCE & Pleural Effusion & 0.929 ± 0.011 & 0.876 ± 0.029 & 0.861 ± 0.019 & \textbf{-0.069} \\
+ResNet-50 & Unweighted BCE & Cardiomegaly & 0.890 ± 0.018 & 0.876 ± 0.032 & 0.879 ± 0.020 & \textbf{-0.011} \\
+ResNet-50 & Unweighted BCE & Pneumonia & 0.843 ± 0.018 & 0.866 ± 0.013 & 0.880 ± 0.017 & \textbf{+0.037} \\
+ResNet-50 & Unweighted BCE & Edema$^*$ & 0.556 ± 0.037 & 0.897 ± 0.022 & -- & \textbf{--} \\
+ResNet-50 & Pos-Weighted BCE & Pleural Effusion & 0.879 ± 0.051 & 0.847 ± 0.046 & 0.819 ± 0.050 & \textbf{-0.060} \\
+ResNet-50 & Pos-Weighted BCE & Cardiomegaly & 0.830 ± 0.055 & 0.805 ± 0.070 & 0.799 ± 0.079 & \textbf{-0.031} \\
+ResNet-50 & Pos-Weighted BCE & Pneumonia & 0.835 ± 0.020 & 0.836 ± 0.035 & 0.823 ± 0.053 & \textbf{-0.012} \\
+ResNet-50 & Pos-Weighted BCE & Edema$^*$ & 0.549 ± 0.085 & 0.831 ± 0.044 & -- & \textbf{--} \\
+\hline
+\multicolumn{7}{l}{\textit{\textbf{Calibration: Equal-Mass ECE ($M=10$, $\downarrow$)}}} \\
+DenseNet-121 & Unweighted BCE & Pleural Effusion & 0.023 ± 0.008 & 0.010 ± 0.004 & 0.009 ± 0.002 & \textbf{-0.014} \\
+DenseNet-121 & Unweighted BCE & Cardiomegaly & 0.014 ± 0.001 & 0.024 ± 0.009 & 0.021 ± 0.007 & \textbf{+0.007} \\
+DenseNet-121 & Unweighted BCE & Pneumonia & 0.014 ± 0.001 & 0.008 ± 0.001 & 0.010 ± 0.002 & \textbf{-0.005} \\
+DenseNet-121 & Pos-Weighted BCE & Pleural Effusion & 0.196 ± 0.070 & 0.222 ± 0.077 & 0.223 ± 0.076 & \textbf{+0.026} \\
+DenseNet-121 & Pos-Weighted BCE & Cardiomegaly & 0.203 ± 0.051 & 0.198 ± 0.053 & 0.197 ± 0.049 & \textbf{-0.006} \\
+DenseNet-121 & Pos-Weighted BCE & Pneumonia & 0.239 ± 0.089 & 0.244 ± 0.092 & 0.243 ± 0.088 & \textbf{+0.003} \\
+ResNet-50 & Unweighted BCE & Pleural Effusion & 0.016 ± 0.005 & 0.010 ± 0.000 & 0.013 ± 0.003 & \textbf{-0.003} \\
+ResNet-50 & Unweighted BCE & Cardiomegaly & 0.023 ± 0.019 & 0.018 ± 0.011 & 0.017 ± 0.008 & \textbf{-0.006} \\
+ResNet-50 & Unweighted BCE & Pneumonia & 0.013 ± 0.005 & 0.010 ± 0.001 & 0.011 ± 0.002 & \textbf{-0.002} \\
+ResNet-50 & Pos-Weighted BCE & Pleural Effusion & 0.248 ± 0.073 & 0.271 ± 0.071 & 0.275 ± 0.077 & \textbf{+0.027} \\
+ResNet-50 & Pos-Weighted BCE & Cardiomegaly & 0.245 ± 0.035 & 0.236 ± 0.027 & 0.234 ± 0.026 & \textbf{-0.011} \\
+ResNet-50 & Pos-Weighted BCE & Pneumonia & 0.319 ± 0.117 & 0.326 ± 0.118 & 0.325 ± 0.121 & \textbf{+0.006} \\
+\hline
+\end{tabular}
+}
+\end{table*}
