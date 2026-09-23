@@ -13,10 +13,10 @@ P.~Rajpurkar, J.~Irvin, K.~Zhu, B.~Yang, H.~Mehta, T.~Duan, D.~Ding, A.~Bagul,
 
 \bibitem{reis2022brax}
 E.~P. Reis, J.~P.~Q. de~Paiva, M.~C.~B. da~Silva, G.~A.~S. Ribeiro, V.~F.
-  Paiva, L.~Bulgarelli, H.~Lee, P.~V. dos Santos, V.~Brito, L.~Amaral,
-  G.~Beraldo, J.~N. Haidar~Filho, G.~Teles, G.~Szarf, T.~Pollard, A.~Johnson,
-  L.~A. Celi, E.~Amaro~Jr., {BRAX}, a {B}razilian labeled chest {X}-ray
-  dataset, Scientific Data 9~(1) (2022) 487.
+  Paiva, L.~Bulgarelli, H.~M.~H. Lee, P.~V. Santos, V.~M. Brito, L.~T.~W.
+  Amaral, G.~L. Beraldo, J.~N. Haidar~Filho, G.~B.~S. Teles, G.~Szarf,
+  T.~Pollard, A.~E.~W. Johnson, L.~A. Celi, E.~Amaro, {BRAX}, a {B}razilian
+  labeled chest {X}-ray dataset, Scientific Data 9~(1) (2022) 487.
 \newblock \href {https://doi.org/10.1038/s41597-022-01608-8}
   {\path{doi:10.1038/s41597-022-01608-8}}.
 
@@ -122,19 +122,18 @@ A.~Fisch, T.~Schuster, T.~Jaakkola, R.~Barzilay, Calibrated selective
 
 \bibitem{johnson2019mimic}
 A.~E.~W. Johnson, T.~J. Pollard, S.~J. Berkowitz, N.~R. Greenbaum, M.~P.
-  Lungren, C.-y. Deng, Y.~Peng, Z.~Lu, R.~G. Mark, S.~Horng, {MIMIC-CXR}, a
-  de-identified publicly available database of chest radiographs with free-text
-  reports, Scientific Data 6~(1) (2019) 317.
+  Lungren, C.-y. Deng, R.~G. Mark, S.~Horng, {MIMIC-CXR}, a de-identified
+  publicly available database of chest radiographs with free-text reports,
+  Scientific Data 6~(1) (2019) 317.
 \newblock \href {https://doi.org/10.1038/s41597-019-0322-0}
   {\path{doi:10.1038/s41597-019-0322-0}}.
 
 \bibitem{johnson2019mimicjpg}
-A.~E.~W. Johnson, T.~J. Pollard, N.~R. Greenbaum, M.~P. Lungren, C.-y. Deng,
-  Y.~Peng, Z.~Lu, R.~G. Mark, S.~J. Berkowitz, S.~Horng, {MIMIC-CXR-JPG} -
-  chest radiographs with structured labels,
-  \url{https://physionet.org/content/mimic-cxr-jpg/2.1.0/} (2019).
-\newblock \href {https://doi.org/10.13026/8360-t248}
-  {\path{doi:10.13026/8360-t248}}.
+A.~Johnson, M.~Lungren, Y.~Peng, Z.~Lu, R.~Mark, S.~Berkowitz, S.~Horng,
+  {MIMIC-CXR-JPG} - chest radiographs with structured labels,
+  \url{https://physionet.org/content/mimic-cxr-jpg/2.1.0/} (2024).
+\newblock \href {https://doi.org/10.13026/jsn5-t979}
+  {\path{doi:10.13026/jsn5-t979}}.
 
 \bibitem{densenet2017huang}
 G.~Huang, Z.~Liu, L.~Van Der~Maaten, K.~Q. Weinberger, Densely connected

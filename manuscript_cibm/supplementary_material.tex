@@ -81,26 +81,36 @@ ResNet-50 & Pos-Weighted BCE & Edema & 21.33\% & 0.1678 & 0.570 [0.538, 0.602] &
 \end{table*}
 
 \section*{Section S2: Diagnostic Study-Level Sensitivity Analysis}
-To evaluate sensitivity to repeated within-patient examinations and multi-image studies, Table~\ref{tab:supp_study_level} summarizes external validation performance aggregated strictly at the diagnostic study level ($N = 3,041$ studies across $N = 289$ unique patients). Multiple images acquired during a single clinical study are aggregated using mean probability pooling. Concordance between Table~\ref{tab:supp_mimic_full} and Table~\ref{tab:supp_study_level} confirms that all primary conclusions are invariant to whether the statistical unit of analysis is defined per radiograph or per clinical study.
+To evaluate sensitivity to repeated within-patient examinations and multi-image studies, Table~\ref{tab:supp_study_level} summarizes external validation performance aggregated strictly at the diagnostic study level ($N = 3,041$ studies across $N = 289$ unique patients). In accordance with standard radiological diagnostic practice, multiple views acquired during a single examination are aggregated using maximum probability pooling ($\max_i p_i$, where detection on any view indicates study-level positive status). Supplementary Table~\ref{tab:supp_study_level} evaluates all 16 architecture-loss-pathology combinations with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals. As shown, study-level results demonstrate that all primary findings are invariant to whether the statistical unit is the individual radiograph or the diagnostic study: unweighted models maintain robust discrimination across views, while analytic logit recalibration ($z - \log w$) on positive-weighted models yields statistically significant reductions in study-level Brier error for Cardiomegaly ($\Delta\text{Brier} = -0.0601$ on DenseNet-121 and $-0.0642$ on ResNet-50) and Pneumonia ($\Delta\text{Brier} = -0.0100$ and $-0.0163$, both intervals strictly below zero), alongside consistent point-estimate reductions for Pleural Effusion ($-0.0102$ and $-0.0118$).
 
 \begin{table*}[!htbp]
-\caption{Supplementary Table S2: Diagnostic Study-Level Sensitivity Analysis on the Official MIMIC-CXR-JPG Test Cohort ($N = 3,041$ Studies across $N = 289$ Unique Patients). Probabilities within multi-image studies are averaged to yield one prediction per study. Evaluated on 3-seed probability ensembles with patient-clustered bootstrap 95\% confidence intervals.}
+\caption{Supplementary Table S2: Diagnostic Study-Level Sensitivity Analysis on the Official MIMIC-CXR-JPG Test Cohort ($N = 3,041$ Studies across $N = 289$ Unique Patients). Multi-image studies are aggregated using maximum probability pooling ($\max_i p_i$). Evaluated on 3-seed probability ensembles with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals, local null Brier reference ($\text{Brier}_{\text{null}} = \pi(1-\pi)$), and paired recalibration contrast ($\Delta\text{Brier} = \text{Brier}_{\text{corr}} - \text{Brier}_{\text{raw}}$).}
 \label{tab:supp_study_level}
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lllcccc}
+\begin{tabular}{lllcccccc}
 \toprule
-\textbf{Architecture} & \textbf{Objective} & \textbf{Pathology} & \textbf{Study Prevalence} & \textbf{Study $\text{Brier}_{\text{null}}$} & \textbf{AUROC [95\% CI]} & \textbf{Brier Score} \\
+\textbf{Architecture} & \textbf{Objective} & \textbf{Pathology} & \textbf{Study Prevalence} & \textbf{Study $\text{Brier}_{\text{null}}$} & \textbf{AUROC [95\% CI]} & \textbf{Brier (Raw $\to$ Corr)} & \textbf{$\Delta\text{Brier}$ [95\% CI]} & \textbf{BSS (Raw $\to$ Corr)} \\
 \midrule
-DenseNet-121 & Unweighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.695 [0.663, 0.723] & 0.2471 \\
-DenseNet-121 & Unweighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.526 [0.497, 0.559] & 0.2359 \\
-DenseNet-121 & Unweighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.608 [0.562, 0.650] & 0.0980 \\
-DenseNet-121 & Unweighted BCE & Edema & 21.64\% & 0.1697 & 0.565 [0.528, 0.600] & 0.2118 \\
+DenseNet-121 & Unweighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.695 [0.663, 0.723] & 0.2488 & -- & -0.133 \\
+DenseNet-121 & Unweighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.526 [0.497, 0.559] & 0.2378 & -- & -0.219 \\
+DenseNet-121 & Unweighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.608 [0.562, 0.650] & 0.0996 & -- & -0.091 \\
+DenseNet-121 & Unweighted BCE & Edema & 21.64\% & 0.1697 & 0.565 [0.528, 0.600] & 0.2157 & -- & -0.271 \\
 \midrule
-ResNet-50 & Unweighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.682 [0.650, 0.714] & 0.2415 \\
-ResNet-50 & Unweighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.521 [0.494, 0.548] & 0.2321 \\
-ResNet-50 & Unweighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.584 [0.543, 0.624] & 0.0978 \\
-ResNet-50 & Unweighted BCE & Edema & 21.64\% & 0.1697 & 0.516 [0.480, 0.553] & 0.2120 \\
+DenseNet-121 & Pos-Weighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.674 [0.643, 0.704] & 0.2556 $\to$ 0.2453 & -0.0102 [-0.0427, +0.0236] & -0.164 $\to$ -0.117 \\
+DenseNet-121 & Pos-Weighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.527 [0.497, 0.558] & 0.2933 $\to$ 0.2332 & \textbf{-0.0601} [-0.0814, -0.0367] & -0.503 $\to$ -0.195 \\
+DenseNet-121 & Pos-Weighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.599 [0.555, 0.639] & 0.1091 $\to$ 0.0992 & \textbf{-0.0100} [-0.0179, -0.0018] & -0.195 $\to$ -0.086 \\
+DenseNet-121 & Pos-Weighted BCE & Edema & 21.64\% & 0.1697 & 0.583 [0.550, 0.616] & 0.1937 $\to$ 0.2165 & +0.0228 [+0.0126, +0.0325] & -0.141 $\to$ -0.275 \\
+\midrule
+ResNet-50 & Unweighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.682 [0.650, 0.714] & 0.2431 & -- & -0.107 \\
+ResNet-50 & Unweighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.521 [0.494, 0.548] & 0.2340 & -- & -0.200 \\
+ResNet-50 & Unweighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.584 [0.543, 0.624] & 0.0992 & -- & -0.087 \\
+ResNet-50 & Unweighted BCE & Edema & 21.64\% & 0.1697 & 0.516 [0.480, 0.553] & 0.2158 & -- & -0.272 \\
+\midrule
+ResNet-50 & Pos-Weighted BCE & Pleural Effusion & 32.55\% & 0.2196 & 0.625 [0.594, 0.655] & 0.2685 $\to$ 0.2567 & -0.0118 [-0.0427, +0.0251] & -0.223 $\to$ -0.169 \\
+ResNet-50 & Pos-Weighted BCE & Cardiomegaly & 26.54\% & 0.1951 & 0.523 [0.493, 0.552] & 0.2858 $\to$ 0.2217 & \textbf{-0.0642} [-0.0852, -0.0434] & -0.465 $\to$ -0.136 \\
+ResNet-50 & Pos-Weighted BCE & Pneumonia & 10.16\% & 0.0913 & 0.588 [0.542, 0.627] & 0.1155 $\to$ 0.0992 & \textbf{-0.0163} [-0.0267, -0.0068] & -0.265 $\to$ -0.086 \\
+ResNet-50 & Pos-Weighted BCE & Edema & 21.64\% & 0.1697 & 0.571 [0.538, 0.606] & 0.1951 $\to$ 0.2164 & +0.0213 [+0.0100, +0.0330] & -0.149 $\to$ -0.275 \\
 \bottomrule
 \end{tabular}%
 }
