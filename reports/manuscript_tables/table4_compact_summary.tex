@@ -1,0 +1,22 @@
+\begin{tabular}{lllccccc}
+\toprule
+\textbf{Coverage} & \textbf{Referred (Workload)} & \textbf{Strategy} & \textbf{Automated FN (Missed)} & \textbf{Retained Sens.} & \textbf{Full Sens.} & \textbf{Retained AUROC} & \textbf{Retained Brier} \\
+\midrule
+100\% & 0 (0\%) & Weighted BCE (Raw) & 16.0 & 81.18\% & 81.18\% & 0.8691 & 0.1079 \\
+100\% & 0 (0\%) & Weighted BCE (Analytic Corrected) & 16.0 & 81.18\% & 81.18\% & 0.8623 & 0.0284 \\
+100\% & 0 (0\%) & Unweighted BCE (Raw) & 12.0 & 85.88\% & 85.88\% & 0.8806 & 0.0268 \\
+\midrule
+90\% & 243 (10\%) & Weighted BCE (Raw) & 14.0 & 82.93\% & 83.53\% & 0.8789 & 0.1062 \\
+90\% & 243 (10\%) & Weighted BCE (Analytic Corrected) & 15.0 & 81.01\% & 82.35\% & 0.8735 & 0.0289 \\
+90\% & 243 (10\%) & Unweighted BCE (Raw) & 12.0 & 84.62\% & 85.88\% & 0.8923 & 0.0266 \\
+\midrule
+80\% & 487 (20\%) & Weighted BCE (Raw) & 10.0 & 87.01\% & 88.24\% & 0.8882 & 0.1012 \\
+80\% & 487 (20\%) & Weighted BCE (Analytic Corrected) & 15.0 & 77.61\% & 82.35\% & 0.8896 & 0.0264 \\
+80\% & 487 (20\%) & Unweighted BCE (Raw) & 12.0 & 82.61\% & 85.88\% & 0.9027 & 0.0256 \\
+\midrule
+70\% & 730 (30\%) & Weighted BCE (Raw) & 7.0 & 89.39\% & 91.76\% & 0.8997 & 0.0956 \\
+70\% & 730 (30\%) & Weighted BCE (Analytic Corrected) & 13.0 & 70.45\% & 84.71\% & 0.8876 & 0.0178 \\
+70\% & 730 (30\%) & Unweighted BCE (Raw) & 11.0 & 78.00\% & 87.06\% & 0.9051 & 0.0194 \\
+70\% & 730 (30\%) & Random Deferral Baseline & 11.3 & 80.99\% & 86.69\% & -- & 0.1081 \\
+\bottomrule
+\end{tabular}

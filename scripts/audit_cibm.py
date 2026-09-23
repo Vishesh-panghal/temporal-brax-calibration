@@ -26,7 +26,10 @@ checks = [
     ('No private CITI ID (61229341)', '61229341' not in text),
     ('No old 11,946 count', '11,946' not in text and '5,973' not in text),
     ('Tracks all 16,604 evaluations', '16,604' in text),
-    ('Tracks 8,302 prospective images', '8,302' in text),
+    ('Tracks 8,302 images', '8,302' in text),
+    ('BRAX sample reduction explained', '444 radiographs from 89 patients' in text),
+    ('Softened conclusion present', 'associated with positive loss weighting rather than measurable deterioration across later deidentified-date strata' in text),
+    ('Zero prospective in main text', len(re.findall(r'\bprospective\b', text, re.IGNORECASE)) == 0),
     ('AI declaration includes OpenAI Codex', 'openai codex' in text.lower()),
     ('Supplementary material PDF exists', os.path.exists('manuscript_cibm/supplementary_material.pdf')),
     ('Main PDF exists', os.path.exists('manuscript_cibm/main_cibm.pdf')),
@@ -107,13 +110,19 @@ with open('manuscript_cibm/supplementary_material.tex', 'r') as f:
 
 pooling_ok = "maximum probability pooling" in supp_text.lower() and "mean probability pooling" not in supp_text.lower()
 supp_rows_ok = "ResNet-50 & Pos-Weighted BCE & Edema" in supp_text
+supp_title_ok = "Deidentified-Date Cohort Shift" in supp_text
+supp_concord_ok = "principal findings were qualitatively concordant" in supp_text
+supp_prospective_ok = len(re.findall(r'\bprospective\b', supp_text, re.IGNORECASE)) == 0
 
 print(f"[{'PASS' if img_csv_ok else 'FAIL'}] Stage 4A image-level rigorous CSV exists")
 print(f"[{'PASS' if study_csv_ok else 'FAIL'}] Stage 4A study-level rigorous CSV exists")
 print(f"[{'PASS' if pooling_ok else 'FAIL'}] Supplementary Section S2 maximum pooling aligned with evaluation script")
 print(f"[{'PASS' if supp_rows_ok else 'FAIL'}] Supplementary Table S2 contains complete 16-row factorial comparison")
+print(f"[{'PASS' if supp_title_ok else 'FAIL'}] Supplementary title uses 'Deidentified-Date Cohort Shift'")
+print(f"[{'PASS' if supp_concord_ok else 'FAIL'}] Supplementary uses 'principal findings were qualitatively concordant'")
+print(f"[{'PASS' if supp_prospective_ok else 'FAIL'}] Zero prospective occurrences in supplementary material")
 
-ext_ok = img_csv_ok and study_csv_ok and pooling_ok and supp_rows_ok
+ext_ok = img_csv_ok and study_csv_ok and pooling_ok and supp_rows_ok and supp_title_ok and supp_concord_ok and supp_prospective_ok
 
 # Live URL check
 print(f"\n=== LIVE URL ACCESSIBILITY AUDIT ===")

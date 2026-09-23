@@ -1,0 +1,25 @@
+\begin{tabular}{lllccccc}
+\toprule
+\textbf{Architecture} & \textbf{Objective} & \textbf{Pathology} & \textbf{AUROC ($T_1 \to T_3$)} & \textbf{$\Delta\text{AUROC}$} & \textbf{Brier ($T_1 \to T_3$)} & \textbf{$\Delta\text{Brier}$} & \textbf{ECE $T_3$} \\
+\midrule
+DenseNet-121 & Unweighted BCE & Pleural Effusion & 0.934 $\to$ 0.873 & -0.060 & 0.037 $\to$ 0.028 & -0.009 & 0.0090 \\
+DenseNet-121 & Unweighted BCE & Cardiomegaly & 0.908 $\to$ 0.902 & -0.006 & 0.053 $\to$ 0.068 & +0.015 & 0.0210 \\
+DenseNet-121 & Unweighted BCE & Pneumonia & 0.847 $\to$ 0.865 & +0.017 & 0.024 $\to$ 0.019 & -0.005 & 0.0095 \\
+DenseNet-121 & Unweighted BCE & Edema* & 0.540 $\to$ -- & -- & 0.002 $\to$ 0.000 & -0.002 & 0.0029 \\
+\midrule
+DenseNet-121 & Pos-Weighted BCE & Pleural Effusion & 0.906 $\to$ 0.839 & -0.067 & 0.108 $\to$ 0.125 & +0.017 & 0.2227 \\
+DenseNet-121 & Pos-Weighted BCE & Cardiomegaly & 0.874 $\to$ 0.858 & -0.016 & 0.126 $\to$ 0.136 & +0.010 & 0.1969 \\
+DenseNet-121 & Pos-Weighted BCE & Pneumonia & 0.818 $\to$ 0.842 & +0.024 & 0.131 $\to$ 0.130 & -0.002 & 0.2425 \\
+DenseNet-121 & Pos-Weighted BCE & Edema* & 0.612 $\to$ -- & -- & 0.061 $\to$ 0.064 & +0.002 & 0.1274 \\
+\midrule
+ResNet-50 & Unweighted BCE & Pleural Effusion & 0.930 $\to$ 0.861 & -0.069 & 0.037 $\to$ 0.028 & -0.009 & 0.0132 \\
+ResNet-50 & Unweighted BCE & Cardiomegaly & 0.890 $\to$ 0.879 & -0.011 & 0.057 $\to$ 0.071 & +0.014 & 0.0175 \\
+ResNet-50 & Unweighted BCE & Pneumonia & 0.843 $\to$ 0.880 & +0.037 & 0.024 $\to$ 0.019 & -0.005 & 0.0106 \\
+ResNet-50 & Unweighted BCE & Edema* & 0.556 $\to$ -- & -- & 0.002 $\to$ 0.000 & -0.002 & 0.0017 \\
+\midrule
+ResNet-50 & Pos-Weighted BCE & Pleural Effusion & 0.879 $\to$ 0.819 & -0.060 & 0.126 $\to$ 0.139 & +0.014 & 0.2751 \\
+ResNet-50 & Pos-Weighted BCE & Cardiomegaly & 0.830 $\to$ 0.799 & -0.031 & 0.142 $\to$ 0.152 & +0.011 & 0.2338 \\
+ResNet-50 & Pos-Weighted BCE & Pneumonia & 0.835 $\to$ 0.823 & -0.012 & 0.167 $\to$ 0.169 & +0.002 & 0.3253 \\
+ResNet-50 & Pos-Weighted BCE & Edema* & 0.549 $\to$ -- & -- & 0.069 $\to$ 0.075 & +0.005 & 0.1670 \\
+\bottomrule
+\end{tabular}

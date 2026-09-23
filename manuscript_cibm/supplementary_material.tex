@@ -27,7 +27,7 @@
 
 \begin{frontmatter}
 
-\title{Supplementary Material: Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Temporal Cohort Shift}
+\title{Supplementary Material: Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Deidentified-Date Cohort Shift}
 
 \author{Vishesh Panghal\corref{cor1}}
 \ead{vishesh@poornima.org}
@@ -81,7 +81,7 @@ ResNet-50 & Pos-Weighted BCE & Edema & 21.33\% & 0.1678 & 0.570 [0.538, 0.602] &
 \end{table*}
 
 \section*{Section S2: Diagnostic Study-Level Sensitivity Analysis}
-To evaluate sensitivity to repeated within-patient examinations and multi-image studies, Table~\ref{tab:supp_study_level} summarizes external validation performance aggregated strictly at the diagnostic study level ($N = 3,041$ studies across $N = 289$ unique patients). In accordance with standard radiological diagnostic practice, multiple views acquired during a single examination are aggregated using maximum probability pooling ($\max_i p_i$, where detection on any view indicates study-level positive status). Supplementary Table~\ref{tab:supp_study_level} evaluates all 16 architecture-loss-pathology combinations with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals. As shown, study-level results demonstrate that all primary findings are invariant to whether the statistical unit is the individual radiograph or the diagnostic study: unweighted models maintain robust discrimination across views, while analytic logit recalibration ($z - \log w$) on positive-weighted models yields statistically significant reductions in study-level Brier error for Cardiomegaly ($\Delta\text{Brier} = -0.0601$ on DenseNet-121 and $-0.0642$ on ResNet-50) and Pneumonia ($\Delta\text{Brier} = -0.0100$ and $-0.0163$, both intervals strictly below zero), alongside consistent point-estimate reductions for Pleural Effusion ($-0.0102$ and $-0.0118$).
+To evaluate sensitivity to repeated within-patient examinations and multi-image studies, Table~\ref{tab:supp_study_level} summarizes external validation performance aggregated strictly at the diagnostic study level ($N = 3,041$ studies across $N = 289$ unique patients). In accordance with standard radiological diagnostic practice, multiple views acquired during a single examination are aggregated using maximum probability pooling ($\max_i p_i$, where detection on any view indicates study-level positive status). Supplementary Table~\ref{tab:supp_study_level} evaluates all 16 architecture-loss-pathology combinations with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals. As shown, study-level results demonstrate that the principal findings were qualitatively concordant regardless of whether the statistical unit is the individual radiograph or the diagnostic study: unweighted models yield comparable discrimination across views, while external discrimination remains pathology-dependent (AUROC approaching chance for Cardiomegaly), and analytic logit recalibration ($z - \log w$) on positive-weighted models yields statistically significant reductions in study-level Brier error for Cardiomegaly ($\Delta\text{Brier} = -0.0601$ on DenseNet-121 and $-0.0642$ on ResNet-50) and Pneumonia ($\Delta\text{Brier} = -0.0100$ and $-0.0163$, both intervals strictly below zero), alongside consistent point-estimate reductions for Pleural Effusion ($-0.0102$ and $-0.0118$).
 
 \begin{table*}[!htbp]
 \caption{Supplementary Table S2: Diagnostic Study-Level Sensitivity Analysis on the Official MIMIC-CXR-JPG Test Cohort ($N = 3,041$ Studies across $N = 289$ Unique Patients). Multi-image studies are aggregated using maximum probability pooling ($\max_i p_i$). Evaluated on 3-seed probability ensembles with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals, local null Brier reference ($\text{Brier}_{\text{null}} = \pi(1-\pi)$), and paired recalibration contrast ($\Delta\text{Brier} = \text{Brier}_{\text{corr}} - \text{Brier}_{\text{raw}}$).}
@@ -116,7 +116,43 @@ ResNet-50 & Pos-Weighted BCE & Edema & 21.64\% & 0.1697 & 0.571 [0.538, 0.606] &
 }
 \end{table*}
 
-\section*{Section S3: Reproducibility and Code Execution Guide}
+\section*{Section S3: Complete In-Domain Factorial Evaluation Matrix}
+Table~\ref{tab:supp_factorial_full} provides the comprehensive 17-column longitudinal evaluation matrix across all models, loss objectives, and thoracic abnormalities across deidentified-date strata $T_1$, $T_2$, and $T_3$, displaying discrimination (AUROC), calibration accuracy (Brier score, ECE), and negative log-likelihood (log-loss) alongside mean and inter-seed standard deviations across random seeds $S \in \{42, 123, 2026\}$.
+
+\begin{table*}[!htbp]
+\caption{Supplementary Table S3: Complete 17-Column Longitudinal Factorial Matrix across DenseNet-121 and ResNet-50 Architectures, Loss Objectives, and Target Thoracic Pathologies across Strata $T_1$ (2015-H2), $T_2$ (2016), and $T_3$ (2017). Values represent mean $\pm$ standard deviation across three random seeds.}
+\label{tab:supp_factorial_full}
+\centering
+\resizebox{\textwidth}{!}{%
+\input{../reports/manuscript_tables/table2_factorial_matrix.tex}
+}
+\end{table*}
+
+\section*{Section S4: Complete Multi-Calibrator Parameter Matrix}
+Table~\ref{tab:supp_calibrators_full} documents the exhaustive 12-column multi-calibrator evaluation on Pleural Effusion across 3-seed probability ensembles on held-out deidentified-date strata $T_1$, $T_2$, and $T_3$, including Cox calibration regression intercepts ($\alpha$), calibration slopes ($\beta$), ECE, log-loss, and patient-clustered 2,000-replicate bootstrap contrasts against uncalibrated models.
+
+\begin{table*}[!htbp]
+\caption{Supplementary Table S4: Complete 12-Column Multi-Calibrator Comparison on Pleural Effusion across 3-Seed Probability Ensembles, Evaluating Cox Intercept ($\alpha$), Slope ($\beta$), ECE, Log-Loss, and Paired Bootstrap Contrasts.}
+\label{tab:supp_calibrators_full}
+\centering
+\resizebox{\textwidth}{!}{%
+\input{../reports/manuscript_tables/table3_calibrator_comparison.tex}
+}
+\end{table*}
+
+\section*{Section S5: Complete Selective Prediction Workload Triage Matrix}
+Table~\ref{tab:supp_selective_full} provides the complete 24-row selective prediction and human-in-the-loop referral simulation on later held-out stratum $T_3$ ($N = 2,436$ radiographs, 85 true positive Pleural Effusion cases) across coverage deciles from 100\% down to 50\%, detailing automated decisions, referred cases, retained true and false positives, retained sensitivity, full-cohort system triage sensitivity, retained AUROC, and retained Brier score.
+
+\begin{table*}[!htbp]
+\caption{Supplementary Table S5: Complete 24-Row Selective Prediction and Reader Referral Triage Simulation on Later Held-Out Stratum $T_3$ ($N = 2,436$ Radiographs, 85 Positive Pleural Effusion Cases) across All Coverage Regimes (100\% to 50\%).}
+\label{tab:supp_selective_full}
+\centering
+\resizebox{\textwidth}{!}{%
+\input{../reports/manuscript_tables/table4_selective_prediction_workload.tex}
+}
+\end{table*}
+
+\section*{Section S6: Reproducibility and Code Execution Guide}
 The complete codebase is organized to support deterministic replication from raw prediction archives through all tables, figures, and statistical tests:
 \begin{enumerate}
     \item \textbf{Environment Setup:} Python 3.10+ with PyTorch, torchvision, scikit-learn, scipy, pandas, numpy, and matplotlib.
@@ -124,7 +160,7 @@ The complete codebase is organized to support deterministic replication from raw
     \begin{quote}
     \texttt{python3 scripts/run\_stage3\_recalibration.py}
     \end{quote}
-    Computes probability ensembles ($\bar{p}_m = \frac{1}{3}\sum_{s=1}^3 p_{m,s}$) across all 8,302 prospective radiographs (16,604 paired model evaluations) for raw, temperature-scaled, analytic offset ($z - \log w$), fitted offset ($z + a^*$), and Platt-scaled models, running 2,000-replicate patient-clustered bootstrap inference.
+    Computes probability ensembles ($\bar{p}_m = \frac{1}{3}\sum_{s=1}^3 p_{m,s}$) across all 8,302 held-out radiographs (16,604 paired model evaluations) for raw, temperature-scaled, analytic offset ($z - \log w$), fitted offset ($z + a^*$), and Platt-scaled models, running 2,000-replicate patient-clustered bootstrap inference.
     \item \textbf{Publication Artifact Compilation:}
     \begin{quote}
     \texttt{python3 scripts/compile\_publication\_artifacts.py}
