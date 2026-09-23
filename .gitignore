@@ -30,6 +30,8 @@ venv/
 
 # Data & Large Files (PhysioNet DUA compliance)
 data/raw/
+data/processed/*.csv
+!data/processed/*schema_example.csv
 *.dcm
 *.tar.gz
 *.zip
