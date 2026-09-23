@@ -1,75 +1,42 @@
-%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'arial, sans-serif', 'primaryTextColor': '#0F172A', 'lineColor': '#475569' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'helvetica, arial, sans-serif', 'primaryTextColor': '#0F172A', 'lineColor': '#475569' }}}%%
 graph LR
 
-    %% ==========================================
-    %% 1. HOSPITAL EDGE DEPLOYMENT PIPELINE
-    %% ==========================================
-    subgraph EdgeDevice ["■ Clinical AI Deployment Pipeline (Hospital Edge Device)"]
+    %% Main Flow: 3 Core Phases
+    subgraph Flow [" "]
         direction LR
 
-        A["<b>Chest Radiograph (CXR Input)</b><br/>BRAX Dataset (N = 41,208)<br/><i>X ∈ ℝ<sup>H×W</sup>, Prevalence π ≈ 4.4%</i>"]
-        B["<b>Deep CNN Backbone</b><br/>DenseNet-121 / ResNet-50<br/>Weighted BCE Loss (w > 1)"]
-        C["<b>Bayes-Optimal Shift</b><br/>z*(x) = logit(p) + log w<br/>Additive Intercept Bias: +3.07<br/><i>(Severe Over-Confidence)</i>"]
-
-        A -->|Image X| B
-        B -->|Logits z| C
-
-        %% Conventional Branch
-        D["<b>Temperature Scaling</b><br/>p̂<sub>temp</sub> = σ(z / T)<br/>Slope scaling only (T* ≈ 1.00)<br/><i>Fails: Intercept uncorrected</i>"]
-        C -->|Tuning| D
-
-        %% Mitigation Subgraph
-        subgraph MitigationLoop ["■ Proposed Mitigation & Selective Decision Loop"]
-            direction TB
-            E["<b>Analytic Probability Offset (Ours)</b><br/>p̂<sub>analytic</sub> = σ(z - log w)<br/>• Exact algebraic neutralization<br/>• Zero validation tuning / Zero re-training<br/>• Preserves discriminative AUC ranking"]
-            F["<b>Selective Prediction Deployment</b><br/>Risk-coverage thresholding: p̂<sub>cal</sub> ≷ τ<br/>Autonomous triage vs. Radiologist referral<br/><i>Guarantees safe risk coverage under drift</i>"]
-            
-            E -->|Calibrated p| F
-        end
-
-        C -->|Closed-Form| E
-    end
-
-    %% ==========================================
-    %% 2. HELD-OUT EVALUATION LAYER (BRAX T3)
-    %% ==========================================
-    subgraph StratumEval ["■ Held-Out Evaluation (BRAX T3, 2017)"]
-        direction TB
-
-        G["<b>Held-Out Calibration Benchmark</b><br/>N = 2,436 radiographs (Year 2017)<br/><i>Brier Score (Lower is Better):</i><br/>━━━━━━━━━━━━━━━━━━━━━━<br/>• Raw Weighted: 0.1065<br/>• Temp Scaling: 0.1059<br/>• Analytic Offset: 0.0280 (<b>-74%</b>)<br/>• Unweighted (Ref): 0.0269<br/>━━━━━━━━━━━━━━━━━━━━━━<br/><b>Matches Unweighted Baseline</b>"]
+        A["<b>Weighted BCE</b><br/><i>Class Imbalance Training</i><br/>w = (1 - π) / π > 1<br/>• Severe imbalance (π ≈ 4.4%)<br/>• Penalizes false negatives"]
         
-        H["<b>Principal Clinical Finding</b><br/>1. Loss weighting creates illusory drift<br/>2. Subtracting log(w) recovers true calibration<br/>3. Selective prediction preserves safety"]
+        T1{"<b>+log w</b><br/><i>Logit Shift</i>"}
 
-        G -->|Clinical Insights| H
+        B["<b>Probability Inflation</b><br/><i>Illusory Temporal Drift</i><br/>z*(x) = logit(p) + log w<br/>• Severe clinical overconfidence<br/>• Temp scaling fails (T* ≈ 1)"]
+        
+        T2{"<b>z - log w</b><br/><i>Analytic Offset</i>"}
+
+        C["<b>Calibration Restored</b><br/><i>Closed-Form Recalibration</i><br/><b>Brier: .108 → .028 (-74%)</b><br/>• Zero parameters / Zero tuning<br/>• 100% AUROC ranking preserved"]
+
+        A --> T1 --> B --> T2 --> C
     end
 
-    %% ==========================================
-    %% 3. INTER-CONTAINER CONNECTORS
-    %% ==========================================
-    D -.->|Upload Model| G
-    F -.->|Deploy Model| G
-    G -.->|Disentangle Loss Bias from Genuine Temporal Shift| B
+    %% External Validation Track
+    subgraph Validation ["EXTERNAL VALIDATION"]
+        direction LR
+        V1["<b>BRAX Cohort (Brazil)</b><br/>N = 40,523 • Multi-Year T1 → T3"]
+        V2["<b>MIMIC-CXR (USA)</b><br/>N = 3,403 • Cross-Site Test"]
+        V1 -->|External Transport| V2
+    end
 
-    %% ==========================================
-    %% STYLING (Draw.io Palette Matching)
-    %% ==========================================
-    classDef tanNode fill:#FFE6CC,stroke:#D79B00,stroke-width:1.5px,color:#0F172A;
-    classDef yellowNode fill:#FFF2CC,stroke:#D6B656,stroke-width:1.5px,color:#0F172A;
-    classDef pinkNode fill:#F8CECC,stroke:#B85450,stroke-width:1.5px,color:#0F172A;
-    classDef orangeNode fill:#FFF7ED,stroke:#EA580C,stroke-width:1.5px,color:#0F172A;
-    classDef greenNode fill:#D5E8D4,stroke:#82B366,stroke-width:1.5px,color:#0F172A;
-    classDef blueNode fill:#DAE8FC,stroke:#6C8EBF,stroke-width:1.5px,color:#0F172A;
-    classDef whiteNode fill:#FFFFFF,stroke:#9673A6,stroke-width:1.5px,color:#0F172A;
+    %% Styling (Subtle Slate & Cool Steel-Blue Medical Palette)
+    classDef stepCard fill:#F0F4F8,stroke:#314D68,stroke-width:1.8px,color:#102A43;
+    classDef transBadge fill:#E3F2FD,stroke:#1976D2,stroke-width:1.8px,color:#0D47A1;
+    classDef valNode fill:#FFFFFF,stroke:#314D68,stroke-width:1.4px,color:#102A43;
 
-    class A tanNode;
-    class B yellowNode;
-    class C pinkNode;
-    class D orangeNode;
-    class E greenNode;
-    class F blueNode;
-    class G whiteNode;
-    class H greenNode;
+    class A stepCard;
+    class T1 transBadge;
+    class B stepCard;
+    class T2 transBadge;
+    class C stepCard;
+    class V1,V2 valNode;
 
-    style EdgeDevice fill:#F5F9FF,stroke:#6C8EBF,stroke-width:1.5px,color:#1E40AF;
-    style MitigationLoop fill:#F2FAF2,stroke:#82B366,stroke-width:1.5px,stroke-dasharray: 5 5,color:#166534;
-    style StratumEval fill:#F8F5FA,stroke:#9673A6,stroke-width:1.5px,color:#6B21A8;
+    style Flow fill:#FFFFFF,stroke:none;
+    style Validation fill:#F0F4F8,stroke:#B0BAC4,stroke-width:1.4px,color:#102A43;

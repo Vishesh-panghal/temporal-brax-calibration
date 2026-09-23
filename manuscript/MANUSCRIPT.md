@@ -9,7 +9,7 @@
 
 ## Abstract
 
-**Objective:** Deep learning models deployed in clinical radiology frequently encounter longitudinal distribution shifts. Under extreme class imbalance, training with positive-weighted binary cross-entropy (BCE) is standard practice. However, its downstream impact on probability calibration under temporal shift has been widely conflated with intrinsic feature drift, leading to claims of severe and unavoidable "temporal calibration decay." In this study, we resolve this conflation through a controlled $2 \times 2 \times 3$ factorial experiment across 12 deep learning models (DenseNet-121 and ResNet-50 trained under unweighted and positive-weighted BCE across 3 random seeds) on 40,523 chest radiographs from the BRAX dataset.
+**Objective:** Deep learning models deployed in clinical radiology frequently encounter longitudinal distribution shifts. Under extreme class imbalance, training with positive-weighted binary cross-entropy (BCE) is standard practice. However, its downstream impact on probability calibration under temporal shift has been widely conflated with intrinsic feature drift, leading to claims of severe and unavoidable "temporal calibration decay." In this study, we resolve this conflation through a controlled $2 \times 2$ experimental design comprising two architectures and two loss objectives, with three independently trained random seeds per configuration (12 models total) on 40,523 chest radiographs from the BRAX dataset.
 
 **Methods:** Models are frozen at an anchor cutoff ($<$\,2015-07) and evaluated prospectively across chronologically stratified cohorts ($T_1$: 2015-H2, $T_2$: 2016, $T_3$: 2017) with strict patient-level isolation. We prove that positive loss weighting induces a constant logit offset ($\log w$), which standard temperature scaling structurally fails to correct. We benchmark post-hoc calibrators (temperature scaling, analytic offset, fitted offset, and non-negative Platt scaling) using 5-fold patient-clustered cross-fitting on $T_1$ with 2,000-replicate cluster bootstrap inference. Furthermore, we design a multi-tier clinical selective prediction policy tracking radiologist referral workloads and automated false negatives.
 
@@ -35,8 +35,8 @@ In this work, we demonstrate that these two phenomena are deeply entangled, and 
 +-----------------------------------------------------------------------------+
 |                               CONTRIBUTIONS                                 |
 +-----------------------------------------------------------------------------+
-| 1. Controlled Factorial Matrix: 12 models (DenseNet-121 & ResNet-50 x       |
-|    Standard & Weighted BCE x 3 seeds) on 40,523 BRAX chest radiographs.     |
+| 1. Controlled Experimental Design: 12 models (DenseNet-121 & ResNet-50 x    |
+|    Standard & Weighted BCE, 3 seeds/config) on 40,523 BRAX chest radiographs.|
 | 2. Mathematical Disproof of Inherent Decay: Proved positive BCE shifts      |
 |    logits by log(w); demonstrated temperature scaling fails while analytic   |
 |    offset (z - log w) eliminates 74% of Brier error.                        |
@@ -118,10 +118,10 @@ where $u(x) \to 1$ indicates maximal ambiguity ($\hat{p}(x) \approx t^*$) and $u
 
 ## 3. Experimental Results
 
-### 3.1 Factorial Matrix: Longitudinal Trajectories
+### 3.1 Experimental Matrix: Longitudinal Trajectories
 Table 2 and Figure 2 display the prospective performance trajectories across DenseNet-121 and ResNet-50.
 
-### Table 2: Factorial Matrix Evaluation across Architectures, Objectives, and Conditions
+### Table 2: Experimental Matrix Evaluation across Architectures, Objectives, and Conditions
 | Architecture | Objective | Target | AUROC $T_1$ | AUROC $T_2$ | AUROC $T_3$ | AUROC $\Delta$ | Brier $T_1$ | Brier $T_2$ | Brier $T_3$ | Brier $\Delta$ | ECE $T_1$ | ECE $T_3$ | ECE $\Delta$ | LogLoss $T_1$ | LogLoss $T_3$ | LogLoss $\Delta$ |
 |---|---|---|---|---|---|---:|---|---|---|---:|---|---|---:|---|---|---:|
 | **DenseNet-121** | Unweighted BCE | Pleural Effusion | 0.9335 ± 0.0052 | 0.8895 ± 0.0115 | 0.8731 ± 0.0120 | -0.0604 | 0.0369 ± 0.0029 | 0.0356 ± 0.0009 | 0.0279 ± 0.0009 | -0.0090 | 0.0232 ± 0.0078 | 0.0090 ± 0.0022 | -0.0143 | 0.1318 ± 0.0076 | 0.1114 ± 0.0027 | -0.0204 |

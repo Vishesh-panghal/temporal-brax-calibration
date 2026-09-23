@@ -89,6 +89,10 @@ S.~E. Davis, R.~A. Greevy, C.~Fonnesbeck, T.~A. Lasko, C.~G. Walsh, M.~E.
 G.~King, L.~Zeng, Logistic regression in rare events data, Political Analysis
   9~(2) (2001) 137--163.
 
+\bibitem{caplin2022calibrating}
+A.~Caplin, D.~Martin, P.~Marx, Calibrating for class weights by modeling
+  machine learning, arXiv preprint arXiv:2205.04613 (2022).
+
 \bibitem{guo2017calibration}
 C.~Guo, G.~Pleiss, Y.~Sun, K.~Q. Weinberger, On calibration of modern neural
   networks, International Conference on Machine Learning (ICML) (2017)
@@ -103,6 +107,15 @@ J.~Platt, Probabilistic outputs for support vector machines and comparisons to
 T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, P.~Doll{\'a}r, Focal loss for dense
   object detection, Proceedings of the IEEE International Conference on
   Computer Vision (ICCV) (2017) 2980--2988.
+
+\bibitem{piccininni2024understanding}
+M.~Piccininni, M.~Wechsung, B.~Van~Calster, J.~L. Rohmann, S.~Konigorski,
+  M.~van Smeden, Understanding random resampling techniques for class imbalance
+  correction and their consequences on calibration and discrimination of
+  clinical risk prediction models, Journal of Biomedical Informatics 155 (2024)
+  104666.
+\newblock \href {https://doi.org/10.1016/j.jbi.2024.104666}
+  {\path{doi:10.1016/j.jbi.2024.104666}}.
 
 \bibitem{geifman2017selective}
 Y.~Geifman, R.~El-Yaniv, Selective classification for deep neural networks,
@@ -119,6 +132,13 @@ B.~Kompa, J.~Snoek, A.~L. Beam, Second opinion needed: communicating
 A.~Fisch, T.~Schuster, T.~Jaakkola, R.~Barzilay, Calibrated selective
   classification, Advances in Neural Information Processing Systems (NeurIPS)
   35 (2022) 28028--28042.
+
+\bibitem{aperstein2026knowing}
+Y.~Aperstein, T.~Amit, G.~Alon, V.~Tal, S.~D. Ravit, A.~Apartsin, Knowing when
+  not to decide: multi-pathology chest {X}-ray classification with rejection
+  mechanisms, Scientific Reports 16 (2026) 66294.
+\newblock \href {https://doi.org/10.1038/s41598-026-66294-7}
+  {\path{doi:10.1038/s41598-026-66294-7}}.
 
 \bibitem{johnson2019mimic}
 A.~E.~W. Johnson, T.~J. Pollard, S.~J. Berkowitz, N.~R. Greenbaum, M.~P.

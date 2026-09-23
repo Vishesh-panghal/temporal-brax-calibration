@@ -492,7 +492,7 @@ Do not begin content modifications (3D, 3E) until the format shell (3B) compiles
   \author{Vishesh Panghal\corref{cor1}}
   \ead{vishesh@poornima.org}
   \cortext[cor1]{Corresponding author.}
-  \affiliation{organization={Department of AI \& DS, Poornima Institute of Engineering and Technology (PIET)},
+  \affiliation{organization={Department of Artificial Intelligence and Data Science, Poornima Institute of Engineering and Technology (PIET)},
               city={Jaipur},
               country={India}}
   ```

@@ -85,10 +85,26 @@ M.~Buda, A.~Maki, and M.~A. Mazurowski, ``A systematic study of the class
 G.~King and L.~Zeng, ``Logistic regression in rare events data,''
   \emph{Political Analysis}, vol.~9, no.~2, pp. 137--163, 2001.
 
+\bibitem{caplin2022calibrating}
+A.~Caplin, D.~Martin, and P.~Marx, ``Calibrating for class weights by modeling
+  machine learning,'' \emph{arXiv preprint arXiv:2205.04613}, 2022.
+
+\bibitem{piccininni2024understanding}
+M.~Piccininni, M.~Wechsung, B.~Van~Calster, J.~L. Rohmann, S.~Konigorski, and
+  M.~van Smeden, ``Understanding random resampling techniques for class
+  imbalance correction and their consequences on calibration and discrimination
+  of clinical risk prediction models,'' \emph{Journal of Biomedical
+  Informatics}, vol. 155, p. 104666, 2024.
+
 \bibitem{guo2017calibration}
 C.~Guo, G.~Pleiss, Y.~Sun, and K.~Q. Weinberger, ``On calibration of modern
   neural networks,'' \emph{International Conference on Machine Learning
   (ICML)}, pp. 1321--1330, 2017.
+
+\bibitem{aperstein2026knowing}
+Y.~Aperstein, T.~Amit, G.~Alon, V.~Tal, S.~D. Ravit, and A.~Apartsin, ``Knowing
+  when not to decide: multi-pathology chest {X}-ray classification with
+  rejection mechanisms,'' \emph{Scientific Reports}, vol.~16, p. 66294, 2026.
 
 \bibitem{densenet2017huang}
 G.~Huang, Z.~Liu, L.~Van Der~Maaten, and K.~Q. Weinberger, ``Densely connected

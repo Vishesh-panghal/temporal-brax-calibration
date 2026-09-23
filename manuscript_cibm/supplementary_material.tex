@@ -33,8 +33,10 @@
 \ead{vishesh@poornima.org}
 \cortext[cor1]{Corresponding author.}
 
-\affiliation{organization={Department of AI \& DS, Poornima Institute of Engineering and Technology (PIET)},
+\affiliation{organization={Department of Artificial Intelligence and Data Science, Poornima Institute of Engineering and Technology (PIET)},
             city={Jaipur},
+            postcode={302022},
+            state={Rajasthan},
             country={India}}
 
 \end{frontmatter}
@@ -160,7 +162,7 @@ The complete codebase is organized to support deterministic replication from raw
     \begin{quote}
     \texttt{python3 scripts/run\_stage3\_recalibration.py}
     \end{quote}
-    Computes probability ensembles ($\bar{p}_m = \frac{1}{3}\sum_{s=1}^3 p_{m,s}$) across all 8,302 held-out radiographs (16,604 paired model evaluations) for raw, temperature-scaled, analytic offset ($z - \log w$), fitted offset ($z + a^*$), and Platt-scaled models, running 2,000-replicate patient-clustered bootstrap inference.
+    Computes probability ensembles ($\bar{p}_m = \frac{1}{3}\sum_{s=1}^3 p_{m,s}$) and ensemble logit offsets ($\Delta z = \frac{1}{3}\sum_{s=1}^3 (z_{w,s} - z_{u,s})$) across all 8,302 held-out radiographs (16,604 paired image-architecture evaluations, alongside all 49,812 seed-specific pairs) for raw, temperature-scaled, analytic offset ($z - \log w$), fitted offset ($z + a^*$), and Platt-scaled models, running 2,000-replicate patient-clustered bootstrap inference.
     \item \textbf{Publication Artifact Compilation:}
     \begin{quote}
     \texttt{python3 scripts/compile\_publication\_artifacts.py}
