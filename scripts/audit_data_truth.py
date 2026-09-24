@@ -208,6 +208,19 @@ def run_scientific_audit():
         else:
             print("  ✅ MIMIC external metrics in manuscript text strictly match rigorous CSV.")
 
+        # Verify exact unique patient-level counts from cohort audit
+        patient_counts = [
+            (r"\$?178\$?\s+positive\s+and\s+\$?273\$?\s+negative\s+patients", "Pleural Effusion (178 pos / 273 neg)"),
+            (r"\$?183\$?\s+positive\s+and\s+\$?282\$?\s+negative\s+patients", "Cardiomegaly (183 pos / 282 neg)"),
+            (r"\$?150\$?\s+positive\s+and\s+\$?287\$?\s+negative\s+patients", "Edema (150 pos / 287 neg)"),
+            (r"\$?137\$?\s+positive\s+and\s+\$?286\$?\s+negative\s+patients", "Pneumonia (137 pos / 286 neg)"),
+        ]
+        for pattern, tgt_name in patient_counts:
+            if not re.search(pattern, tex):
+                errors.append(f"Missing exact patient-level counts for {tgt_name} in main_cmpb.tex")
+            else:
+                print(f"  ✅ Verified {tgt_name} unique patient counts.")
+
     # =========================================================================
     # 6. Scientific Language De-Biasing & Prospective Wording Audit
     # =========================================================================
