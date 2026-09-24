@@ -105,10 +105,10 @@ def audit_cohort(manifest_path: str, image_root_path: str = None):
         f"{n_studies:,} studies, across {n_patients:,} unique patients; "
         f"AP: {ap_cnt:,} [{ap_cnt/n_images:.1%}], PA: {pa_cnt:,} [{pa_cnt/n_images:.1%}]). "
         f"Diagnostic labels were extracted using the official CheXpert labeler with an uncertainty zero "
-        f"(U-zero) policy. Prevalence varied by finding: Pleural Effusion ({stats_records[0]['Prevalence']:.1%}, N={stats_records[0]['Positives']}), "
-        f"Cardiomegaly ({stats_records[1]['Prevalence']:.1%}, N={stats_records[1]['Positives']}), "
-        f"Pneumonia ({stats_records[2]['Prevalence']:.1%}, N={stats_records[2]['Positives']}), "
-        f"and Edema ({stats_records[3]['Prevalence']:.1%}, N={stats_records[3]['Positives']}).\""
+        f"(U-zero) policy. Prevalence varied by finding: Pleural Effusion ({stats_records[0]['Prevalence']:.1%}, N={stats_records[0]['Pos_Images']:,}), "
+        f"Cardiomegaly ({stats_records[1]['Prevalence']:.1%}, N={stats_records[1]['Pos_Images']:,}), "
+        f"Pneumonia ({stats_records[2]['Prevalence']:.1%}, N={stats_records[2]['Pos_Images']:,}), "
+        f"and Edema ({stats_records[3]['Prevalence']:.1%}, N={stats_records[3]['Pos_Images']:,}).\""
     )
     print(methods_text)
     print("-" * 68 + "\n")
