@@ -165,7 +165,7 @@ where $\alpha = 0$ represents ideal calibration-in-the-large and $\beta = 1$ den
 We evaluate four post-hoc recalibration functions:
 \begin{enumerate}
     \item \textbf{Temperature Scaling ($T^*$):} $p = \sigma(z / T^*)$, optimized via bounded Brent minimization ($O(N_{\mathrm{val}})$ fitting, $O(1)$ inference).
-    \item \textbf{Analytic Offset ($z - \ln w$):} Subtracts the theoretical logit shift ($p = \sigma(z - \ln w)$), requiring zero validation data or tuning ($O(1)$ fitting and inference) and resetting $\alpha \approx 0$ while preserving slope.
+    \item \textbf{Analytic Offset ($z - \ln w$):} Subtracts the theoretical logit shift ($p = \sigma(z - \ln w)$), requiring zero validation data or tuning ($O(1)$ fitting and inference); removes the theoretical weighting-induced logit offset while preserving discrimination.
     \item \textbf{Fitted Offset ($z + a^*$):} Optimizes scalar intercept $a^*$ on validation log-likelihood with slope fixed at 1.0 ($O(N_{\mathrm{val}})$ fitting, $O(1)$ inference).
     \item \textbf{Platt Scaling ($a + bz$):} Logistic regression on logits with non-negative slope constraint $b \ge 0$ ($O(k \cdot N_{\mathrm{val}})$ fitting, $O(1)$ inference).
 \end{enumerate}
