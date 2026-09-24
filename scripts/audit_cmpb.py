@@ -265,8 +265,26 @@ def run_audit():
         if abs_word_count > 350:
             tier2_errors.append(f"Structured abstract word count ({abs_word_count}) exceeds CMPB limit (350 words).")
 
-    # Check 2.4: Highlights in title_page.tex
-    print("\n🔍 [Check 2.4] Highlights Character Length (Limit: <= 85 characters)...")
+    # Check 2.4: Keywords Validation (CMPB requirement: 3 to 6 keywords)
+    print("\n🔍 [Check 2.4] Auditing Keywords in main_cmpb.tex (CMPB Limit: 3 to 6)...")
+    kw_match = re.search(r"\\begin\{keyword\}(.*?)\\end\{keyword\}", tex, re.DOTALL)
+    if not kw_match:
+        tier2_errors.append("Keyword environment not found in main_cmpb.tex.")
+    else:
+        raw_kw = kw_match.group(1).strip()
+        keywords = [k.strip() for k in raw_kw.split(r"\sep") if k.strip()]
+        print(f"  📊 Found {len(keywords)} keywords: {', '.join(keywords)}")
+        if len(keywords) < 3 or len(keywords) > 6:
+            tier2_errors.append(f"Found {len(keywords)} keywords in main_cmpb.tex (CMPB requirement: 3 to 6).")
+        else:
+            print("  ✅ Keyword count satisfies CMPB 3–6 requirement.")
+        if any("deep learning" == k.lower() for k in keywords):
+            tier2_errors.append("Keyword 'Deep learning' should be dropped as least discriminative.")
+        else:
+            print("  ✅ Generic keyword 'Deep learning' correctly dropped.")
+
+    # Check 2.5: Highlights in title_page.tex
+    print("\n🔍 [Check 2.5] Highlights Character Length (Limit: <= 85 characters)...")
     if TITLE_TEX.exists():
         hl_match = re.search(r"\\section\*\{Highlights\}\s*\\begin\{itemize\}(.*?)\\end\{itemize\}", title_text, re.DOTALL)
         if not hl_match:
@@ -287,8 +305,8 @@ def run_audit():
     else:
         tier2_errors.append("title_page.tex not found.")
 
-    # Check 2.5: Mandatory Elsevier Declarations
-    print("\n🔍 [Check 2.5] Auditing Mandatory Elsevier Declarations...")
+    # Check 2.6: Mandatory Elsevier Declarations
+    print("\n🔍 [Check 2.6] Auditing Mandatory Elsevier Declarations...")
     declarations = [
         "CRediT Authorship Contribution Statement",
         "Declaration of Competing Interest",
@@ -303,19 +321,31 @@ def run_audit():
         else:
             tier2_errors.append(f"Mandatory declaration '{name}' missing from main_cmpb.tex.")
 
-    # Check 2.6: Body Word Count via texcount
-    print("\n🔍 [Check 2.6] Checking Body Word Count via texcount...")
+    # Check 2.7: Figure and Table Count Verification in title_page.tex
+    print("\n🔍 [Check 2.7] Auditing Figure and Table Count in title_page.tex...")
+    if TITLE_TEX.exists():
+        if "4 + 1 graphical abstract" in title_text:
+            print("  ✅ Figure count clarified: '4 + 1 graphical abstract'.")
+        else:
+            tier2_errors.append("Title page should specify '4 + 1 graphical abstract' for figure count.")
+        if "5 (plus 5 supplementary tables)" in title_text:
+            print("  ✅ Table count verified: '5 (plus 5 supplementary tables)'.")
+    else:
+        tier2_errors.append("title_page.tex not found.")
+
+    # Check 2.8: Body Word Count via texcount
+    print("\n🔍 [Check 2.8] Checking Body Word Count via texcount...")
     try:
         res = subprocess.run(["texcount", str(MAIN_TEX)], capture_output=True, text=True, check=True)
         tc_out = res.stdout
         tc_match = re.search(r"Words in text:\s+(\d+)", tc_out)
         if tc_match:
             words_in_text = int(tc_match.group(1))
-            print(f"  📊 texcount text words: {words_in_text} words (CMPB target: ~3,500 words, threshold: <= 3,800).")
-            if words_in_text > 3800:
-                tier2_errors.append(f"Body text words ({words_in_text}) exceeds 3,800-word ceiling for CMPB (guideline: <= 3,500 words).")
+            print(f"  📊 texcount text words: {words_in_text} words (CMPB target: <= 3,500 words).")
+            if words_in_text > 3500:
+                tier2_errors.append(f"Body text words ({words_in_text}) exceeds 3,500-word ceiling for CMPB.")
             else:
-                print(f"  ✅ Body word count is within CMPB guidelines.")
+                print(f"  ✅ Body word count is strictly <= 3,500 words ({words_in_text} <= 3,500).")
         else:
             print("  ⚠️ Warning: Could not parse texcount output.")
     except Exception as e:
