@@ -1,0 +1,42 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'helvetica, arial, sans-serif', 'primaryTextColor': '#0F172A', 'lineColor': '#475569' }}}%%
+graph LR
+
+    %% Main Flow: 3 Core Phases
+    subgraph Flow [" "]
+        direction LR
+
+        A["<b>Weighted BCE</b><br/><i>Class Imbalance Training</i><br/>w = (1 - π) / π > 1<br/>• Severe imbalance (π ≈ 4.4%)<br/>• Penalizes false negatives"]
+        
+        T1{"<b>+log w</b><br/><i>Logit Shift</i>"}
+
+        B["<b>Probability Inflation</b><br/><i>Illusory Temporal Drift</i><br/>z*(x) = logit(p) + log w<br/>• Severe clinical overconfidence<br/>• Temp scaling fails (T* ≈ 1)"]
+        
+        T2{"<b>z - log w</b><br/><i>Analytic Offset</i>"}
+
+        C["<b>Calibration Restored</b><br/><i>Closed-Form Recalibration</i><br/><b>Brier: .108 → .028 (-74%)</b><br/>• Zero parameters / Zero tuning<br/>• 100% AUROC ranking preserved"]
+
+        A --> T1 --> B --> T2 --> C
+    end
+
+    %% External Validation Track
+    subgraph Validation ["EXTERNAL VALIDATION"]
+        direction LR
+        V1["<b>BRAX Cohort (Brazil)</b><br/>N = 40,523 • Multi-Year T1 → T3"]
+        V2["<b>MIMIC-CXR (USA)</b><br/>N = 3,403 • Cross-Site Test"]
+        V1 -->|External Transport| V2
+    end
+
+    %% Styling (Subtle Slate & Cool Steel-Blue Medical Palette)
+    classDef stepCard fill:#F0F4F8,stroke:#314D68,stroke-width:1.8px,color:#102A43;
+    classDef transBadge fill:#E3F2FD,stroke:#1976D2,stroke-width:1.8px,color:#0D47A1;
+    classDef valNode fill:#FFFFFF,stroke:#314D68,stroke-width:1.4px,color:#102A43;
+
+    class A stepCard;
+    class T1 transBadge;
+    class B stepCard;
+    class T2 transBadge;
+    class C stepCard;
+    class V1,V2 valNode;
+
+    style Flow fill:#FFFFFF,stroke:none;
+    style Validation fill:#F0F4F8,stroke:#B0BAC4,stroke-width:1.4px,color:#102A43;

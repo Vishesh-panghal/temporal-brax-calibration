@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{charter}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\textbf{Vishesh Panghal} \\
+Department of Artificial Intelligence and Data Science \\
+Poornima Institute of Engineering and Technology (PIET) \\
+Jaipur, Rajasthan 302022, India \\
+Email: \texttt{pvt.panghal@gmail.com}
+
+\vspace{1em}
+\today
+
+\textbf{To:} \\
+The Editor-in-Chief \\
+\textit{Computer Methods and Programs in Biomedicine} \\
+Elsevier
+
+\vspace{1em}
+\textbf{Subject: Submission of Original Research Article}
+
+Dear Editor-in-Chief,
+
+I am pleased to submit our original research manuscript entitled:
+
+\begin{center}
+\textbf{``Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Deidentified-Date Cohort Shift''}
+\end{center}
+
+for publication consideration as an \textbf{Original Research Article} in \textit{Computer Methods and Programs in Biomedicine}.
+
+\textbf{Significance and Alignment with CMPB Scope:} \\
+Clinical deep learning algorithms for chest radiography increasingly suffer from severe probability miscalibration when deployed over time. In biomedical image classification, positive-class weighting within binary cross-entropy (BCE) is standard practice to manage acute class imbalance (prevalence $<5\%$). However, its algebraic interaction with model output logits has been widely conflated with intrinsic clinical feature drift.
+
+Our study directly addresses the algorithmic and computational foundations of this failure:
+\begin{enumerate}
+    \item \textbf{Mathematical Derivation \& Empirical Clustering:} We derive that positive loss weighting mathematically induces an additive constant logit displacement of $+\ln w$ in the population Bayes-optimal classifier. Across $16,604$ evaluations spanning DenseNet-121 and ResNet-50 backbones on 40,523 radiographs from the BRAX benchmark, finite neural network logits cluster tightly around theoretical $\ln w$ ($3.29 \pm 0.81$ vs. theoretical $3.07$).
+    \item \textbf{Structural Failure of Temperature Scaling:} We prove that standard temperature scaling ($z / T$) modifies logit variance without shifting the intercept, rendering it structurally incapable of correcting this intercept displacement ($\alpha \approx -2.96$).
+    \item \textbf{Algorithmic $O(1)$ Analytic Recalibration:} We formulate a closed-form analytic logit offset ($z - \ln w$) that requires zero numerical optimization, zero validation tuning, and $O(1)$ constant compute, eliminating $73.7\%$ of stratum $T_3$ Brier error ($0.1079 \to 0.0284$, $\Delta\text{Brier} = -0.0795$ [95\% CI: $-0.0893, -0.0697$]) and restoring calibration parity without model retraining.
+    \item \textbf{Budget-Ranked Selective Deferral:} We formalize the actual uncertainty-ranked selective triage pipeline, quantifying the clinical trade-off between calibrated risk estimation and recall-oriented screening referral.
+    \item \textbf{External Multi-Center Transportability Stress-Test:} We evaluate external validity on the official MIMIC-CXR-JPG frontal test split ($3,403$ images from $3,041$ studies across $289$ patients), establishing both the efficacy and the boundaries of zero-retraining recalibration under real-world domain shift.
+\end{enumerate}
+
+\textbf{Author Declarations and Compliance:}
+\begin{itemize}
+    \item This manuscript represents original work and has not been published previously, nor is it under simultaneous consideration for publication elsewhere.
+    \item Publication is approved by the author and the host institution.
+    \item No funding was received for this study, and the author declares no competing financial or non-financial interests.
+    \item All analyzed benchmark cohorts (BRAX v1.1.0 and MIMIC-CXR-JPG v2.1.0) are fully anonymized, de-identified public datasets compliant with institutional ethics review and HIPAA standards.
+    \item Complete code, checkpoints, and evaluation scripts supporting all findings are documented for deterministic replication.
+\end{itemize}
+
+Thank you for your time and consideration of our manuscript.
+
+Sincerely,
+
+\textbf{Vishesh Panghal} \\
+Department of Artificial Intelligence and Data Science \\
+Poornima Institute of Engineering and Technology (PIET), Jaipur, India \\
+Corresponding Author: \texttt{pvt.panghal@gmail.com}
+
+\end{document}

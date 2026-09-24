@@ -21,7 +21,7 @@
     urlcolor=blue
 }
 
-\journal{Computers in Biology and Medicine}
+\journal{Computer Methods and Programs in Biomedicine}
 
 \begin{document}
 
@@ -46,7 +46,63 @@
 \setcounter{table}{0}
 \setcounter{figure}{0}
 
-\section*{Section S1: Comprehensive Cross-Institutional Factorial Matrix}
+\section*{Section S1: Mathematical Derivation of Bayes-Optimal Logit Shift under Weighted Binary Cross-Entropy}
+In this section, we provide the complete formal derivation demonstrating that positive-class weighting in binary cross-entropy (BCE) mathematically induces an additive constant logit shift of $+\ln w$ in the population Bayes-optimal classifier.
+
+Let $X \in \mathcal{X}$ denote the input feature representation (e.g., chest radiograph), and let $Y \in \{0, 1\}$ represent the binary pathology label. Let $\eta(x) = P(Y = 1 \mid X = x)$ denote the true posterior probability under the data-generating distribution. A neural network outputs a scalar logit $z(x) \in \mathbb{R}$, yielding predicted probability $\hat{p}(x) = \sigma(z(x)) = \frac{1}{1 + e^{-z(x)}}$.
+
+The positive-weighted binary cross-entropy loss with positive scalar weight $w > 0$ for a single instance $(x, y)$ is defined as:
+\begin{equation}
+\mathcal{L}_{\text{pos}}(y, \hat{p}(x)) = - w \cdot y \ln(\hat{p}(x)) - (1 - y) \ln(1 - \hat{p}(x))
+\label{eq:supp_loss_def}
+\end{equation}
+
+Under population risk minimization, the optimal model minimizes the conditional expected risk at each point $x$:
+\begin{align}
+R(z(x)) &= \mathbb{E}_{Y \mid X=x} [\mathcal{L}_{\text{pos}}(Y, \sigma(z(x)))] \nonumber \\
+&= - w \cdot \eta(x) \ln(\sigma(z(x))) - (1 - \eta(x)) \ln(1 - \sigma(z(x)))
+\label{eq:supp_expected_risk}
+\end{align}
+
+Recall the standard identity for the logistic sigmoid derivative with respect to its logit $z$:
+\begin{equation}
+\frac{d}{dz} \sigma(z) = \sigma(z)(1 - \sigma(z))
+\end{equation}
+Differentiating the conditional expected risk with respect to logit $z(x)$:
+\begin{align}
+\frac{d R}{dz} &= - w \cdot \eta(x) \frac{\sigma(z)(1 - \sigma(z))}{\sigma(z)} - (1 - \eta(x)) \frac{-\sigma(z)(1 - \sigma(z))}{1 - \sigma(z)} \nonumber \\
+&= - w \cdot \eta(x)(1 - \sigma(z)) + (1 - \eta(x))\sigma(z) \nonumber \\
+&= \sigma(z) \left[ w \cdot \eta(x) + (1 - \eta(x)) \right] - w \cdot \eta(x)
+\label{eq:supp_first_order}
+\end{align}
+
+Setting the first-order condition $\frac{d R}{dz} = 0$ to find the optimal predicted probability $\hat{p}^*(x) = \sigma(z^*(x))$:
+\begin{equation}
+\sigma(z^*(x)) \left[ w \cdot \eta(x) + 1 - \eta(x) \right] = w \cdot \eta(x)
+\end{equation}
+Solving directly for $\hat{p}^*(x)$:
+\begin{equation}
+\hat{p}^*(x) = \frac{w \cdot \eta(x)}{w \cdot \eta(x) + (1 - \eta(x))}
+\label{eq:supp_opt_prob}
+\end{equation}
+
+Converting optimal probability $\hat{p}^*(x)$ into the Bayes-optimal logit representation $z^*(x) = \text{logit}(\hat{p}^*(x))$:
+\begin{align}
+z^*(x) &= \ln\left( \frac{\hat{p}^*(x)}{1 - \hat{p}^*(x)} \right) \nonumber \\
+&= \ln\left( \frac{\frac{w \cdot \eta(x)}{w \cdot \eta(x) + (1 - \eta(x))}}{1 - \frac{w \cdot \eta(x)}{w \cdot \eta(x) + (1 - \eta(x))}} \right) \nonumber \\
+&= \ln\left( \frac{w \cdot \eta(x)}{1 - \eta(x)} \right) \nonumber \\
+&= \ln\left( \frac{\eta(x)}{1 - \eta(x)} \right) + \ln(w)
+\label{eq:supp_bayes_logit_final}
+\end{align}
+
+Let $z_{\text{true}}(x) = \text{logit}(\eta(x)) = \ln\left(\frac{P(Y=1 \mid X=x)}{P(Y=0 \mid X=x)}\right)$ denote the true population log-odds. We obtain the exact closed-form relation:
+\begin{equation}
+z^*(x) = z_{\text{true}}(x) + \ln(w)
+\label{eq:supp_exact_shift}
+\end{equation}
+Equation~(\ref{eq:supp_exact_shift}) proves that positive loss weighting acts as an exact additive translation of the population Bayes-optimal logit by $+\ln w$. When $w > 1$ (standard practice to combat acute class imbalance), uncalibrated predictions suffer an artificial positive logit inflation, which systematically distorts posterior probability calibration into acute over-confidence. Crucially, subtracting the constant offset $\ln w$ ($z \mapsto z - \ln w$) recovers the undistorted log-odds $z_{\text{true}}(x)$ under ideal asymptotic conditions, establishing the theoretical foundation for the $O(1)$ zero-retraining analytic recalibration evaluated in the main manuscript.
+
+\section*{Section S2: Comprehensive Cross-Institutional Factorial Matrix}
 Table~\ref{tab:supp_mimic_full} provides the complete $2 \times 2 \times 4$ cross-institutional factorial matrix on the official MIMIC-CXR-JPG test cohort ($N = 3,403$ frontal radiographs from $3,041$ diagnostic studies across $N = 289$ unique patients). Both unweighted and positive-weighted binary cross-entropy (BCE) models are evaluated across DenseNet-121 and ResNet-50 architectures for all four thoracic abnormalities. For positive-weighted models, paired zero-parameter analytic logit recalibration ($z \mapsto z - \log w$) is evaluated alongside patient-clustered 1,000-replicate bootstrap 95\% confidence intervals.
 
 \begin{table*}[!htbp]
@@ -82,7 +138,7 @@ ResNet-50 & Pos-Weighted BCE & Edema & 21.33\% & 0.1678 & 0.570 [0.538, 0.602] &
 }
 \end{table*}
 
-\section*{Section S2: Diagnostic Study-Level Sensitivity Analysis}
+\section*{Section S3: Diagnostic Study-Level Sensitivity Analysis}
 To evaluate sensitivity to repeated within-patient examinations and multi-image studies, Table~\ref{tab:supp_study_level} summarizes external validation performance aggregated strictly at the diagnostic study level ($N = 3,041$ studies across $N = 289$ unique patients). In accordance with standard radiological diagnostic practice, multiple views acquired during a single examination are aggregated using maximum probability pooling ($\max_i p_i$, where detection on any view indicates study-level positive status). Supplementary Table~\ref{tab:supp_study_level} evaluates all 16 architecture-loss-pathology combinations with patient-clustered 1,000-replicate bootstrap 95\% confidence intervals. As shown, study-level results demonstrate that the principal findings were qualitatively concordant regardless of whether the statistical unit is the individual radiograph or the diagnostic study: unweighted models yield comparable discrimination across views, while external discrimination remains pathology-dependent (AUROC approaching chance for Cardiomegaly), and analytic logit recalibration ($z - \log w$) on positive-weighted models yields statistically significant reductions in study-level Brier error for Cardiomegaly ($\Delta\text{Brier} = -0.0601$ on DenseNet-121 and $-0.0642$ on ResNet-50) and Pneumonia ($\Delta\text{Brier} = -0.0100$ and $-0.0163$, both intervals strictly below zero), alongside consistent point-estimate reductions for Pleural Effusion ($-0.0102$ and $-0.0118$).
 
 \begin{table*}[!htbp]
@@ -118,7 +174,7 @@ ResNet-50 & Pos-Weighted BCE & Edema & 21.64\% & 0.1697 & 0.571 [0.538, 0.606] &
 }
 \end{table*}
 
-\section*{Section S3: Complete In-Domain Factorial Evaluation Matrix}
+\section*{Section S4: Complete In-Domain Factorial Evaluation Matrix}
 Table~\ref{tab:supp_factorial_full} provides the comprehensive 17-column longitudinal evaluation matrix across all models, loss objectives, and thoracic abnormalities across deidentified-date strata $T_1$, $T_2$, and $T_3$, displaying discrimination (AUROC), calibration accuracy (Brier score, ECE), and negative log-likelihood (log-loss) alongside mean and inter-seed standard deviations across random seeds $S \in \{42, 123, 2026\}$.
 
 \begin{table*}[!htbp]
@@ -130,7 +186,7 @@ Table~\ref{tab:supp_factorial_full} provides the comprehensive 17-column longitu
 }
 \end{table*}
 
-\section*{Section S4: Complete Multi-Calibrator Parameter Matrix}
+\section*{Section S5: Complete Multi-Calibrator Parameter Matrix}
 Table~\ref{tab:supp_calibrators_full} documents the exhaustive 12-column multi-calibrator evaluation on Pleural Effusion across 3-seed probability ensembles on held-out deidentified-date strata $T_1$, $T_2$, and $T_3$, including Cox calibration regression intercepts ($\alpha$), calibration slopes ($\beta$), ECE, log-loss, and patient-clustered 2,000-replicate bootstrap contrasts against uncalibrated models.
 
 \begin{table*}[!htbp]
@@ -142,7 +198,7 @@ Table~\ref{tab:supp_calibrators_full} documents the exhaustive 12-column multi-c
 }
 \end{table*}
 
-\section*{Section S5: Complete Selective Prediction Workload Triage Matrix}
+\section*{Section S6: Complete Selective Prediction Workload Triage Matrix}
 Table~\ref{tab:supp_selective_full} provides the complete 24-row selective prediction and human-in-the-loop referral simulation on later held-out stratum $T_3$ ($N = 2,436$ radiographs, 85 true positive Pleural Effusion cases) across coverage deciles from 100\% down to 50\%, detailing automated decisions, referred cases, retained true and false positives, retained sensitivity, full-cohort system triage sensitivity, retained AUROC, and retained Brier score.
 
 \begin{table*}[!htbp]
@@ -154,7 +210,7 @@ Table~\ref{tab:supp_selective_full} provides the complete 24-row selective predi
 }
 \end{table*}
 
-\section*{Section S6: Reproducibility and Code Execution Guide}
+\section*{Section S7: Reproducibility and Code Execution Guide}
 The complete codebase is organized to support deterministic replication from raw prediction archives through all tables, figures, and statistical tests:
 \begin{enumerate}
     \item \textbf{Environment Setup:} Python 3.10+ with PyTorch, torchvision, scikit-learn, scipy, pandas, numpy, and matplotlib.
@@ -170,9 +226,9 @@ The complete codebase is organized to support deterministic replication from raw
     Generates Tables 1--4 in LaTeX and markdown formats, alongside publication figures (Figures 2--6).
     \item \textbf{Verification Audit:}
     \begin{quote}
-    \texttt{python3 scripts/audit\_cibm.py}
+    \texttt{python3 scripts/audit\_cmpb.py}
     \end{quote}
-    Verifies all formatting, word count, highlight length ($\le 85$ characters), and statutory compliance rules for Computers in Biology and Medicine.
+    Verifies all formatting, word count, highlight length ($\le 85$ characters), and statutory compliance rules for Computer Methods and Programs in Biomedicine.
 \end{enumerate}
 
 \end{document}

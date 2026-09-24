@@ -8,7 +8,7 @@ checks = [
     ('documentclass elsarticle', r'\documentclass[preprint,12pt]{elsarticle}' in text),
     ('linenumbers', r'\linenumbers' in text),
     ('single author Vishesh', 'Vishesh Panghal' in text),
-    ('email', 'vishesh@poornima.org' in text),
+    ('email', 'pvt.panghal@gmail.com' in text),
     ('PIET affiliation', 'Poornima Institute of Engineering and Technology' in text),
     ('highlights environment', r'\begin{highlights}' in text),
     ('graphical abstract environment', r'\begin{graphicalabstract}' in text),

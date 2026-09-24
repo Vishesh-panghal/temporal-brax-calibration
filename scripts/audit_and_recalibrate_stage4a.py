@@ -248,9 +248,12 @@ def run_rigorous_evaluation(pred_dir="reports/stage4a/predictions", n_bootstraps
     all_preds = pd.concat(dfs, ignore_index=True)
     
     # 1. IMAGE-LEVEL 3-SEED PROBABILITY ENSEMBLE
-    # Within each run, track image occurrence
-    all_preds["img_occ"] = all_preds.groupby(["run_id", "patient_id", "study_id", "view_position", "target"]).cumcount()
-    group_cols_img = ["architecture", "loss_type", "patient_id", "study_id", "view_position", "img_occ", "target"]
+    if "dicom_id" in all_preds.columns and all_preds["dicom_id"].notna().all():
+        group_cols_img = ["architecture", "loss_type", "patient_id", "study_id", "dicom_id", "view_position", "target"]
+    else:
+        # Fallback tracking image occurrence per run if legacy files lack dicom_id
+        all_preds["img_occ"] = all_preds.groupby(["run_id", "patient_id", "study_id", "view_position", "target"]).cumcount()
+        group_cols_img = ["architecture", "loss_type", "patient_id", "study_id", "view_position", "img_occ", "target"]
     
     ens_img = all_preds.groupby(group_cols_img).agg({
         "y_true": "first",

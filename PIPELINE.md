@@ -91,7 +91,7 @@ flowchart TD
 
 ### Stage 02: Metadata Quality Audit & Date Parsing
 - [x] Inspect initial raw columns (`PatientID`, `StudyDate`, pathology labels, `ViewPosition`, `Manufacturer`).
-- [ ] **Critical Date Parsing Fix in [test.ipynb](file:///Users/visheshpanghal/Downloads/Database/test.ipynb)**:
+- [ ] **Critical Date Parsing Fix in [test.ipynb](file:///Users/visheshpanghal/Downloads/temporal-BRAX/test.ipynb)**:
   > [!IMPORTANT]
   > `StudyDate` is formatted as integer `YYYYMMDD` (e.g., `20101129`). Using `pd.to_datetime(df['StudyDate'])` without explicit format caused pandas to read integers as nanoseconds (producing `1970-01-01 ...`).
   > **Required fix**:

@@ -199,26 +199,88 @@ def run_ensemble_evaluation(pred_dir_str: str, out_dir_str: str, n_bootstraps: i
     all_ensemble_records = []
     all_seed_records = []
 
+    # Parse all prediction files by inspecting internal metadata
+    parsed_files = []
+    for f in pred_files:
+        try:
+            head = pd.read_csv(f, nrows=5)
+            if "architecture" in head.columns and "loss_type" in head.columns and "seed" in head.columns:
+                arch_val = str(head["architecture"].iloc[0]).strip().lower()
+                loss_val = str(head["loss_type"].iloc[0]).strip().lower()
+                seed_val = int(head["seed"].iloc[0])
+                parsed_files.append({
+                    "path": f,
+                    "architecture": arch_val,
+                    "loss_type": loss_val,
+                    "seed": seed_val,
+                })
+        except Exception as e:
+            print(f"  ⚠️ Warning: Could not inspect header of {f.name}: {e}")
+
     for arch, loss_type in configs:
         is_weighted = (loss_type == "weighted_bce")
-        # Match the 3 seed files
-        matching_files = [
-            f for f in pred_files
-            if arch in f.name and loss_type in f.name
+        # Match exactly by architecture and loss recorded inside each file
+        matching_entries = [
+            p for p in parsed_files
+            if p["architecture"] == arch and p["loss_type"] == loss_type
         ]
-        seeds = sorted([int(f.stem.split("seed")[-1]) for f in matching_files if "seed" in f.stem])
+        matching_files = [m["path"] for m in matching_entries]
+        seeds = sorted([m["seed"] for m in matching_entries])
         print(f"\nProcessing {arch.upper()} | {loss_type} (Found seeds: {seeds})...")
 
-        if len(matching_files) < 3:
-            print(f"  ⚠️ Warning: Found {len(matching_files)} seed files, expected 3.")
+        # Require exactly the 3 expected seeds
+        if seeds != [1, 2, 3]:
+            raise ValueError(
+                f"Configuration {arch} | {loss_type} must have exactly 3 seeds [1, 2, 3]. "
+                f"Found {len(seeds)} files with seeds: {seeds}."
+            )
 
-        # Load all seed files
+        # Load all seed files and strictly verify internal contents
         seed_dfs = []
         for mf in matching_files:
             s_df = pd.read_csv(mf)
+            if not (s_df["architecture"].astype(str).str.lower() == arch).all():
+                raise ValueError(f"File {mf.name} contains conflicting architectures!")
+            if not (s_df["loss_type"].astype(str).str.lower() == loss_type).all():
+                raise ValueError(f"File {mf.name} contains conflicting loss types!")
             seed_dfs.append(s_df)
 
         combined_df = pd.concat(seed_dfs, ignore_index=True)
+
+        # Strict image integrity assertions - NO fallback allowed
+        if "dicom_id" not in combined_df.columns:
+            raise ValueError(
+                f"❌ CRITICAL ERROR: 'dicom_id' column missing for {arch} | {loss_type}! "
+                f"Evaluation cannot proceed without explicit image IDs (fallback disabled)."
+            )
+        if combined_df["dicom_id"].isna().any() or (combined_df["dicom_id"].astype(str).str.strip() == "").any():
+            raise ValueError(
+                f"❌ CRITICAL ERROR: Null or empty 'dicom_id' values detected in predictions for {arch} | {loss_type}!"
+            )
+
+        # Verify exactly 3,403 unique images survive
+        unique_dicoms = combined_df["dicom_id"].unique()
+        if len(unique_dicoms) != 3403:
+            raise ValueError(
+                f"❌ CRITICAL ERROR: Expected exactly 3,403 unique images for {arch} | {loss_type}, "
+                f"but found {len(unique_dicoms):,} unique dicom_ids!"
+            )
+
+        # Verify exactly 3 distinct seed predictions per image per target
+        seed_counts = combined_df.groupby(["dicom_id", "target"])["seed"].nunique()
+        if not (seed_counts == 3).all():
+            bad = seed_counts[seed_counts != 3]
+            raise ValueError(
+                f"❌ CRITICAL ERROR: Found {len(bad)} (image, target) instances without exactly 3 seed predictions!"
+            )
+
+        # Verify one consistent label per image per target
+        label_counts = combined_df.groupby(["dicom_id", "target"])["y_true"].nunique()
+        if not (label_counts == 1).all():
+            bad_lbl = label_counts[label_counts != 1]
+            raise ValueError(
+                f"❌ CRITICAL ERROR: Conflicting ground truth labels detected across seeds for {len(bad_lbl)} images!"
+            )
 
         # 1. Compute Individual Seed Metrics (for Secondary Variance Reporting)
         for s in seeds:
@@ -241,9 +303,8 @@ def run_ensemble_evaluation(pred_dir_str: str, out_dir_str: str, n_bootstraps: i
                     "brier_score": br_s,
                 })
 
-        # 2. Build 3-Seed Probability Ensemble
-        # Group by unique radiograph key
-        key_cols = ["patient_id", "study_id", "view_position", "target"]
+        # 2. Build 3-Seed Probability Ensemble strictly keyed by dicom_id
+        key_cols = ["patient_id", "study_id", "dicom_id", "view_position", "target"]
         ensemble_agg = combined_df.groupby(key_cols).agg({
             "y_true": "first",
             "prob_raw": "mean",
@@ -252,6 +313,12 @@ def run_ensemble_evaluation(pred_dir_str: str, out_dir_str: str, n_bootstraps: i
             "prob_raw": "prob_raw_ensemble",
             "prob_corrected": "prob_corr_ensemble",
         })
+
+        if ensemble_agg["dicom_id"].nunique() != 3403:
+            raise ValueError(
+                f"❌ CRITICAL ERROR: Post-ensemble grouping image count is {ensemble_agg['dicom_id'].nunique()}, "
+                f"expected exactly 3,403!"
+            )
 
         # Stratifications: All Frontal, AP View, PA View
         strata = [

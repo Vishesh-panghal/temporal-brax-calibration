@@ -181,6 +181,7 @@ def run_stage4a_evaluation(
         views_arr = np.array([m["view_position"] for m in meta])
         pts_arr = np.array([m["patient_id"] for m in meta])
         studies_arr = np.array([m["study_id"] for m in meta])
+        dicoms_arr = np.array([m["dicom_id"] for m in meta])
 
         for t_idx, t_name in enumerate(targets):
             yt = targets_arr[:, t_idx]
@@ -197,6 +198,7 @@ def run_stage4a_evaluation(
                     "seed": seed,
                     "patient_id": pts_arr[i],
                     "study_id": studies_arr[i],
+                    "dicom_id": dicoms_arr[i],
                     "view_position": views_arr[i],
                     "target": t_name,
                     "y_true": float(yt[i]),

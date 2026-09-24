@@ -53,18 +53,24 @@ def audit_cohort(manifest_path: str, image_root_path: str = None):
 
     # Pathologies & Null Brier
     print("\nPathology Prevalence & Null Baselines (u_zero policy):")
-    print(f"  {'Pathology':20s} {'Positives':>10s} {'Prevalence (π)':>16s} {'Brier_null [π(1-π)]':>22s}")
-    print("  " + "-" * 72)
+    print(f"  {'Pathology':18s} {'Pos Imgs':>9s} {'Pos Pts':>8s} {'Neg Pts':>8s} {'Pos Stds':>9s} {'Prevalence':>11s} {'Brier_null':>12s}")
+    print("  " + "-" * 80)
     stats_records = []
     for tgt in TARGETS:
         if tgt in df.columns:
-            pos = int(df[tgt].sum())
-            prev = pos / n_images
+            pos_imgs = int(df[tgt].sum())
+            pos_pts = int(df[df[tgt] == 1]["patient_id"].nunique())
+            neg_pts = int(df[df[tgt] == 0]["patient_id"].nunique())
+            pos_stds = int(df[df[tgt] == 1]["study_id"].nunique())
+            prev = pos_imgs / n_images
             b_null = prev * (1.0 - prev)
-            print(f"  {tgt:20s} {pos:10d} {prev:16.2%} {b_null:22.4f}")
+            print(f"  {tgt:18s} {pos_imgs:9d} {pos_pts:8d} {neg_pts:8d} {pos_stds:9d} {prev:11.2%} {b_null:12.4f}")
             stats_records.append({
                 "Target": tgt,
-                "Positives": pos,
+                "Pos_Images": pos_imgs,
+                "Pos_Patients": pos_pts,
+                "Neg_Patients": neg_pts,
+                "Pos_Studies": pos_stds,
                 "Prevalence": prev,
                 "Brier_null": b_null,
             })

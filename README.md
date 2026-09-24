@@ -7,8 +7,8 @@
 [![Audit](https://img.shields.io/badge/Audit-100%25%20PASS-success.svg)](scripts/audit_cibm.py)
 
 **Author:** Vishesh Panghal  
-**Affiliation:** Department of Artificial Intelligence & Data Science, Poornima Institute of Engineering and Technology (PIET), Jaipur, India  
-**Contact:** `vishesh@poornima.org` / `visheshpanghal12@gmail.com`  
+**Affiliation:** Department of Artificial Intelligence and Data Science, Poornima Institute of Engineering and Technology (PIET), Jaipur, India  
+**Contact:** `pvt.panghal@gmail.com`  
 **Manuscript:** [`manuscript_cibm/main_cibm.pdf`](manuscript_cibm/main_cibm.pdf) | **Supplementary:** [`manuscript_cibm/supplementary_material.pdf`](manuscript_cibm/supplementary_material.pdf)
 
 ---
