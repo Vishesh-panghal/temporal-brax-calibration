@@ -1,0 +1,6 @@
+Highlights:
+• Positive loss weighting induces an additive population logit offset of log w.
+• Finite neural network logits empirically cluster tightly around theoretical log w.
+• Temperature scaling cannot correct this intercept-type calibration bias.
+• Analytic offset (z - log w) cuts 73.7% of Brier error without retraining.
+• Selective triage exposes trade-offs between calibrated risk and screening referral.
