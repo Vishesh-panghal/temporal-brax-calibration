@@ -22,8 +22,18 @@
 
 set -euo pipefail
 
-IMAGE_ARG="${1:-}"
-if [ -z "$IMAGE_ARG" ] || [ "$IMAGE_ARG" = "/path/to/mimic-cxr-jpg/images" ]; then
+SKIP_INF=0
+IMAGE_ROOT=""
+
+for arg in "$@"; do
+    if [ "$arg" = "--skip-inference" ] || [ "$arg" = "-s" ]; then
+        SKIP_INF=1
+    elif [[ "$arg" != -* ]] && [ "$arg" != "/path/to/mimic-cxr-jpg/images" ]; then
+        IMAGE_ROOT="$arg"
+    fi
+done
+
+if [ -z "$IMAGE_ROOT" ]; then
     if [ -d "/home/poornima/vishesh_gpu/datasets/mimic-cxr-jpg/images" ]; then
         IMAGE_ROOT="/home/poornima/vishesh_gpu/datasets/mimic-cxr-jpg/images"
     elif [ -d "/home/poornima/vishesh_gpu/datasets/mimic-cxr-jpg" ]; then
@@ -33,8 +43,6 @@ if [ -z "$IMAGE_ARG" ] || [ "$IMAGE_ARG" = "/path/to/mimic-cxr-jpg/images" ]; th
     else
         IMAGE_ROOT="/home/poornima/vishesh_gpu/datasets/mimic-cxr-jpg/images"
     fi
-else
-    IMAGE_ROOT="$IMAGE_ARG"
 fi
 
 MANIFEST="data/processed/mimic_stage4a_manifest.csv"
@@ -42,11 +50,12 @@ MANIFEST="data/processed/mimic_stage4a_manifest.csv"
 echo "======================================================================"
 echo "  MIMIC-CXR-JPG DICOM-ID Level Evaluation & Full Table 5 Regeneration"
 echo "======================================================================"
-echo "  Image Root : ${IMAGE_ROOT}"
-echo "  Manifest   : ${MANIFEST}"
+echo "  Image Root     : ${IMAGE_ROOT}"
+echo "  Manifest       : ${MANIFEST}"
+echo "  Skip Inference : ${SKIP_INF}"
 echo "======================================================================"
 
-if [ ! -d "${IMAGE_ROOT}" ]; then
+if [ "$SKIP_INF" -eq 0 ] && [ ! -d "${IMAGE_ROOT}" ]; then
     echo "❌ ERROR: Image directory '${IMAGE_ROOT}' does not exist!"
     echo "   Please specify the valid directory containing MIMIC-CXR images, e.g.:"
     echo "   bash scripts/run_mimic_dicom_rerun.sh /path/to/actual/images"
@@ -59,13 +68,6 @@ if [ -f "reports/manuscript_tables/table5_mimic_external_validation.tex" ]; then
     echo "  📁 Backed up existing Table 5 to table5_mimic_external_validation.tex.bak"
 fi
 
-# Check if user requested skipping inference
-SKIP_INF=0
-for arg in "$@"; do
-    if [ "$arg" = "--skip-inference" ] || [ "$arg" = "-s" ]; then
-        SKIP_INF=1
-    fi
-done
 
 # Step 1: Run inference across all 12 checkpoints with dicom_id exported
 if [ "$SKIP_INF" -eq 1 ]; then
