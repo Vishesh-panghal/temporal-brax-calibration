@@ -59,19 +59,31 @@ if [ -f "reports/manuscript_tables/table5_mimic_external_validation.tex" ]; then
     echo "  📁 Backed up existing Table 5 to table5_mimic_external_validation.tex.bak"
 fi
 
+# Check if user requested skipping inference
+SKIP_INF=0
+for arg in "$@"; do
+    if [ "$arg" = "--skip-inference" ] || [ "$arg" = "-s" ]; then
+        SKIP_INF=1
+    fi
+done
+
 # Step 1: Run inference across all 12 checkpoints with dicom_id exported
-echo -e "\n🚀 [Step 1/5] Running inference across 12 frozen models..."
-python3 src/evaluation/evaluate_mimic_stage4a.py \
-    --image-root "${IMAGE_ROOT}" \
-    --manifest "${MANIFEST}" \
-    --batch-size 32 \
-    --workers 8
+if [ "$SKIP_INF" -eq 1 ]; then
+    echo -e "\n⏭️ [Step 1/5] Skipping inference (--skip-inference specified); using existing prediction archives in reports/stage4a/predictions..."
+else
+    echo -e "\n🚀 [Step 1/5] Running inference across 12 frozen models..."
+    python3 src/evaluation/evaluate_mimic_stage4a.py \
+        --image-root "${IMAGE_ROOT}" \
+        --manifest "${MANIFEST}" \
+        --batch-size 32 \
+        --workers 8
+fi
 
 # Step 2: Build 3-seed probability ensemble with strict dicom_id grouping & assertions
 echo -e "\n📊 [Step 2/5] Running strict 3-seed probability ensemble (dicom_id-keyed, B=1000)..."
 python3 src/evaluation/ensemble_mimic_stage4a.py \
     --pred-dir reports/stage4a/predictions \
-    --out-dir reports/stage4a/tables \
+    --output-dir reports/stage4a/tables \
     --bootstraps 1000
 
 # Step 3: Run rigorous paired patient-clustered bootstrap for image-level and study-level cohorts

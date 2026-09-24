@@ -228,10 +228,10 @@ def run_ensemble_evaluation(pred_dir_str: str, out_dir_str: str, n_bootstraps: i
         seeds = sorted([m["seed"] for m in matching_entries])
         print(f"\nProcessing {arch.upper()} | {loss_type} (Found seeds: {seeds})...")
 
-        # Require exactly the 3 expected seeds
-        if seeds != [1, 2, 3]:
+        # Require exactly the 3 expected seeds ([42, 123, 2026] or [1, 2, 3])
+        if seeds != [42, 123, 2026] and seeds != [1, 2, 3]:
             raise ValueError(
-                f"Configuration {arch} | {loss_type} must have exactly 3 seeds [1, 2, 3]. "
+                f"Configuration {arch} | {loss_type} must have exactly 3 seeds ([42, 123, 2026] or [1, 2, 3]). "
                 f"Found {len(seeds)} files with seeds: {seeds}."
             )
 
@@ -414,7 +414,7 @@ def run_ensemble_evaluation(pred_dir_str: str, out_dir_str: str, n_bootstraps: i
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--pred-dir", type=str, default="reports/stage4a/predictions")
-    parser.add_argument("--output-dir", type=str, default="reports/stage4a/tables")
+    parser.add_argument("--output-dir", "--out-dir", dest="output_dir", type=str, default="reports/stage4a/tables")
     parser.add_argument("--bootstraps", type=int, default=1000)
     args = parser.parse_args()
 
