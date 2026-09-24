@@ -59,8 +59,9 @@ def audit_cohort(manifest_path: str, image_root_path: str = None):
     for tgt in TARGETS:
         if tgt in df.columns:
             pos_imgs = int(df[tgt].sum())
-            pos_pts = int(df[df[tgt] == 1]["patient_id"].nunique())
-            neg_pts = int(df[df[tgt] == 0]["patient_id"].nunique())
+            pt_col = "patient_id" if "patient_id" in df.columns else "subject_id"
+            pos_pts = int(df[df[tgt] == 1][pt_col].nunique())
+            neg_pts = int(df[df[tgt] == 0][pt_col].nunique())
             pos_stds = int(df[df[tgt] == 1]["study_id"].nunique())
             prev = pos_imgs / n_images
             b_null = prev * (1.0 - prev)
