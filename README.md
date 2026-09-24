@@ -1,15 +1,15 @@
 # Positive-Class Weighting Induces Systematic Probability Distortion in Deep Learning Models for Chest Radiography under Deidentified-Date Cohort Shift
 
-[![CIBM](https://img.shields.io/badge/Journal-Computers%20in%20Biology%20and%20Medicine-blue.svg)](https://www.sciencedirect.com/journal/computers-in-biology-and-medicine)
+[![CMPB](https://img.shields.io/badge/Journal-Computer%20Methods%20and%20Programs%20in%20Biomedicine-blue.svg)](https://www.sciencedirect.com/journal/computer-methods-and-programs-in-biomedicine)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Audit](https://img.shields.io/badge/Audit-100%25%20PASS-success.svg)](scripts/audit_cibm.py)
+[![Audit](https://img.shields.io/badge/Audit-100%25%20PASS-success.svg)](scripts/audit_cmpb.py)
 
 **Author:** Vishesh Panghal  
 **Affiliation:** Department of Artificial Intelligence and Data Science, Poornima Institute of Engineering and Technology (PIET), Jaipur, India  
 **Contact:** `pvt.panghal@gmail.com`  
-**Manuscript:** [`manuscript_cibm/main_cibm.pdf`](manuscript_cibm/main_cibm.pdf) | **Supplementary:** [`manuscript_cibm/supplementary_material.pdf`](manuscript_cibm/supplementary_material.pdf)
+**Manuscript (CMPB):** [`manuscript_cmpb/main_cmpb.pdf`](manuscript_cmpb/main_cmpb.pdf) | **Title Page:** [`manuscript_cmpb/title_page.pdf`](manuscript_cmpb/title_page.pdf) | **Cover Letter:** [`manuscript_cmpb/cover_letter.pdf`](manuscript_cmpb/cover_letter.pdf) | **Supplementary:** [`manuscript_cmpb/supplementary_material.pdf`](manuscript_cmpb/supplementary_material.pdf)
 
 ---
 
@@ -50,13 +50,19 @@ This repository provides the complete, leak-free computational pipeline to repro
 │   └── raw/                          # Raw DICOM/JPG binaries (git-ignored, PhysioNet DUA)
 ├── checkpoints/                      # Model weights (git-ignored)
 ├── docs/                             # Extended documentation & literature reviews
-├── manuscript_cibm/                  # CIBM LaTeX submission package
-│   ├── main_cibm.tex                 # Main manuscript LaTeX source
-│   ├── supplementary_material.tex    # Supplementary Material LaTeX source
-│   ├── references.bib                # Fully audited BibTeX bibliography
-│   ├── graphical_abstract.png        # Publication graphical abstract
-│   ├── figures/                      # High-resolution vector/PNG figures
-│   ├── main_cibm.pdf                 # Compiled main manuscript (31 pages)
+├── manuscript_cmpb/                  # CMPB LaTeX submission package (Active Target)
+│   ├── main_cmpb.tex                 # CMPB manuscript source (condensed to ~3,650 text words)
+│   ├── title_page.tex                # Separate title page & 5 highlights (<= 85 chars)
+│   ├── cover_letter.tex              # Addressed to CMPB Editor-in-Chief
+│   ├── supplementary_material.tex    # Full algebraic derivation & supplementary tables
+│   ├── graphical_abstract.png        # Publication graphical abstract (1328x670, 300 DPI)
+│   ├── main_cmpb.pdf                 # Compiled main manuscript (25 pages, with line numbers)
+│   ├── title_page.pdf                # Compiled title page PDF
+│   ├── cover_letter.pdf              # Compiled cover letter PDF
+│   └── supplementary_material.pdf    # Compiled supplementary material (7 pages)
+├── manuscript_cibm/                  # CIBM LaTeX submission baseline archive
+│   ├── main_cibm.tex                 # CIBM manuscript source (frozen baseline)
+│   ├── main_cibm.pdf                 # Compiled CIBM manuscript (31 pages)
 │   └── supplementary_material.pdf    # Compiled supplementary material (5 pages)
 ├── reports/
 │   ├── manuscript_figures/           # Figures 2 through 6 (300 DPI)
